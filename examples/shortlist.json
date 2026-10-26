@@ -1,0 +1,386 @@
+{
+  "scored_on": "2026-10-26",
+  "query": {
+    "niche": "postnatal running",
+    "audience": "new mums",
+    "country": "GB",
+    "terms": [
+      "postnatal running",
+      "new mums",
+      "postnatal running new mums"
+    ]
+  },
+  "shows": [
+    {
+      "slug": "run-home-mama",
+      "title": "Run Home Mama",
+      "author": "Fictional Host One",
+      "feed_url": "https://feeds.example.com/run-home-mama.xml",
+      "website": "https://runhomemama.example.com/",
+      "guest_link": "https://runhomemama.example.com/be-a-guest",
+      "apple_url": "https://podcasts.example.com/run-home-mama",
+      "description": "Weekly conversations about postnatal running, pelvic health and getting back to the start line after a baby. For new mums who miss their miles.",
+      "genres": [
+        "Running",
+        "Health & Fitness"
+      ],
+      "language": "en",
+      "episode_count": 128,
+      "last_episode_date": "2026-10-22",
+      "cadence_days": 7.0,
+      "guest_ratio": 0.8,
+      "recent_titles": [
+        "Returning to running with a physio, with Ama Lewis",
+        "Ep 127: Hana Price on running through the fourth trimester",
+        "Leaking is common, not normal, with Bea Morton",
+        "Solo: my own 5k comeback",
+        "Postnatal running myths with Cleo Dunn"
+      ],
+      "sources": [
+        "apple"
+      ],
+      "feed_ok": true,
+      "score": 100,
+      "parts": {
+        "fit": 100,
+        "recency": 100,
+        "guests": 100,
+        "size": 100,
+        "cadence": 100
+      },
+      "reasons": [
+        "On your love list.",
+        "They talk about new mums, return running, baby, leaking, postnatal, which is who you help.",
+        "Fresh episode on 2026-10-22.",
+        "Guest show: about 80% of recent titles are interviews.",
+        "Publishes weekly, 128 episodes so far."
+      ],
+      "refuse_hits": [],
+      "active_90_days": true,
+      "band": "Ring today"
+    },
+    {
+      "slug": "the-strong-after-baby-show",
+      "title": "The Strong After Baby Show",
+      "author": "Fictional Host Two",
+      "feed_url": "https://feeds.example.com/strong-after-baby.xml",
+      "website": "https://strongafterbaby.example.com/",
+      "guest_link": "",
+      "apple_url": "https://podcasts.example.com/strong-after-baby",
+      "description": "Strength training for mums after birth. Guests share how they rebuilt their core, their confidence and their running.",
+      "genres": [
+        "Health & Fitness",
+        "Parenting"
+      ],
+      "language": "en",
+      "episode_count": 64,
+      "last_episode_date": "2026-10-14",
+      "cadence_days": 14.0,
+      "guest_ratio": 0.6,
+      "recent_titles": [
+        "Lifting after a C-section with Priya Shah",
+        "Interview: the strength coach who stopped counting calories",
+        "Core myths, busted",
+        "Feat. Dani Rowe: strong mums run further",
+        "Your questions answered"
+      ],
+      "sources": [
+        "apple"
+      ],
+      "feed_ok": true,
+      "score": 98,
+      "parts": {
+        "fit": 80,
+        "recency": 85,
+        "guests": 100,
+        "size": 100,
+        "cadence": 80
+      },
+      "reasons": [
+        "On your love list.",
+        "They talk about strength coach, baby, mums, running, which is who you help.",
+        "Fresh episode on 2026-10-14.",
+        "Guest show: about 60% of recent titles are interviews.",
+        "Publishes fortnightly, 64 episodes so far."
+      ],
+      "refuse_hits": [],
+      "active_90_days": true,
+      "band": "Ring today"
+    },
+    {
+      "slug": "pelvic-floor-truths",
+      "title": "Pelvic Floor Truths",
+      "author": "Fictional Host Three",
+      "feed_url": "https://feeds.example.com/pelvic-floor-truths.xml",
+      "website": "https://pelvicfloortruths.example.com/",
+      "guest_link": "https://pelvicfloortruths.example.com/pitch-the-show",
+      "apple_url": "",
+      "description": "A women's health physio answers the questions you were too embarrassed to ask. Postnatal recovery, prolapse, running and more.",
+      "genres": [
+        "Medicine",
+        "Health & Fitness"
+      ],
+      "language": "en",
+      "episode_count": 38,
+      "last_episode_date": "2026-09-29",
+      "cadence_days": 30.0,
+      "guest_ratio": 0.4,
+      "recent_titles": [
+        "Can I run with a prolapse?",
+        "In conversation with a midwife",
+        "Pessaries explained",
+        "Joined by a running coach: the return to run guidelines",
+        "Postnatal recovery timeline"
+      ],
+      "sources": [
+        "apple"
+      ],
+      "feed_ok": true,
+      "score": 68,
+      "parts": {
+        "fit": 68,
+        "recency": 70,
+        "guests": 67,
+        "size": 70,
+        "cadence": 60
+      },
+      "reasons": [
+        "They talk about return running, coach, postnatal, which is who you help.",
+        "Fresh episode on 2026-09-29.",
+        "Some guests: about 40% of recent titles are interviews.",
+        "Publishes monthly, 38 episodes so far."
+      ],
+      "refuse_hits": [],
+      "active_90_days": true,
+      "band": "Worth a ring"
+    },
+    {
+      "slug": "mum-miles",
+      "title": "Mum Miles",
+      "author": "Fictional Host Four",
+      "feed_url": "https://feeds.example.com/mum-miles.xml",
+      "website": "https://mummiles.example.com/",
+      "guest_link": "",
+      "apple_url": "https://podcasts.example.com/mum-miles",
+      "description": "Two running mums chat about their week of training, race plans and school runs.",
+      "genres": [
+        "Running",
+        "Comedy"
+      ],
+      "language": "en",
+      "episode_count": 212,
+      "last_episode_date": "2026-10-24",
+      "cadence_days": 7.0,
+      "guest_ratio": 0.0,
+      "recent_titles": [
+        "Episode 212; Rainy long runs and lost trainers",
+        "Episode 211; Half marathon taper tantrums",
+        "Episode 210; Parkrun PBs and packed lunches",
+        "Episode 209; Hill reps and half term"
+      ],
+      "sources": [
+        "apple"
+      ],
+      "feed_ok": true,
+      "score": 50,
+      "parts": {
+        "fit": 48,
+        "recency": 100,
+        "guests": 0,
+        "size": 85,
+        "cadence": 100
+      },
+      "reasons": [
+        "Light overlap: marathon, mums, plan. Listen to one episode first.",
+        "Fresh episode on 2026-10-24.",
+        "Recent titles look solo, guests may be rare.",
+        "Publishes weekly, 212 episodes so far."
+      ],
+      "refuse_hits": [],
+      "active_90_days": true,
+      "band": "Maybe later"
+    },
+    {
+      "slug": "tiny-feet-big-feelings",
+      "title": "Tiny Feet Big Feelings",
+      "author": "Fictional Host Eight",
+      "feed_url": "https://feeds.example.com/tiny-feet.xml",
+      "website": "https://tinyfeet.example.com/",
+      "guest_link": "",
+      "apple_url": "https://podcasts.example.com/tiny-feet",
+      "description": "Gentle parenting for toddler years, with experts and real families.",
+      "genres": [
+        "Parenting",
+        "Kids & Family"
+      ],
+      "language": "en",
+      "episode_count": 15,
+      "last_episode_date": "2026-10-10",
+      "cadence_days": 14.0,
+      "guest_ratio": 0.6,
+      "recent_titles": [
+        "Tantrums with a child psychologist",
+        "Meet Ola, mum of three",
+        "Sleep regressions with Iris Bell"
+      ],
+      "sources": [
+        "apple"
+      ],
+      "feed_ok": true,
+      "score": 39,
+      "parts": {
+        "fit": 12,
+        "recency": 70,
+        "guests": 100,
+        "size": 70,
+        "cadence": 80
+      },
+      "reasons": [
+        "Light overlap: mums. Listen to one episode first.",
+        "Fresh episode on 2026-10-10.",
+        "Guest show: about 60% of recent titles are interviews.",
+        "Publishes fortnightly, 15 episodes so far."
+      ],
+      "refuse_hits": [],
+      "active_90_days": true,
+      "band": "Maybe later"
+    },
+    {
+      "slug": "quiet-hours-sleep-club",
+      "title": "Quiet Hours Sleep Club",
+      "author": "Fictional Host Six",
+      "feed_url": "https://feeds.example.com/quiet-hours.xml",
+      "website": "https://quiethours.example.com/",
+      "guest_link": "",
+      "apple_url": "",
+      "description": "Sleep help for exhausted new mums and the babies who keep them up.",
+      "genres": [
+        "Parenting"
+      ],
+      "language": "en",
+      "episode_count": 45,
+      "last_episode_date": "2026-05-02",
+      "cadence_days": 21.0,
+      "guest_ratio": 0.5,
+      "recent_titles": [
+        "Contact naps with a sleep consultant",
+        "Night feeds, explained",
+        "Interview: a mum of twins on surviving year one"
+      ],
+      "sources": [
+        "apple"
+      ],
+      "feed_ok": true,
+      "score": 38,
+      "parts": {
+        "fit": 32,
+        "recency": 0,
+        "guests": 83,
+        "size": 70,
+        "cadence": 60
+      },
+      "reasons": [
+        "Light overlap: new mums. Listen to one episode first.",
+        "Nothing new in 90 days, it may be resting.",
+        "Guest show: about 50% of recent titles are interviews.",
+        "Publishes monthly, 45 episodes so far."
+      ],
+      "refuse_hits": [],
+      "active_90_days": false,
+      "band": "Maybe later"
+    },
+    {
+      "slug": "diet-reset-daily",
+      "title": "Diet Reset Daily",
+      "author": "Fictional Host Seven",
+      "feed_url": "https://feeds.example.com/diet-reset.xml",
+      "website": "https://dietreset.example.com/",
+      "guest_link": "https://dietreset.example.com/guest",
+      "apple_url": "",
+      "description": "Crash diets, weight loss before-and-after stories and quick fixes for new mums who want their old body back.",
+      "genres": [
+        "Nutrition"
+      ],
+      "language": "en",
+      "episode_count": 410,
+      "last_episode_date": "2026-10-25",
+      "cadence_days": 1.0,
+      "guest_ratio": 0.7,
+      "recent_titles": [
+        "Before-and-after with Tia Ross",
+        "The 7 day crash diet with Mo Patel",
+        "Weight loss after baby with Kat Lim"
+      ],
+      "sources": [
+        "apple"
+      ],
+      "feed_ok": true,
+      "score": 34,
+      "parts": {
+        "fit": 44,
+        "recency": 100,
+        "guests": 100,
+        "size": 85,
+        "cadence": 100
+      },
+      "reasons": [
+        "Light overlap: new mums, baby. Listen to one episode first.",
+        "Fresh episode on 2026-10-25.",
+        "Guest show: about 70% of recent titles are interviews.",
+        "Publishes daily, 410 episodes so far.",
+        "Touches weight loss before-and-after, crash diets, which you said no to."
+      ],
+      "refuse_hits": [
+        "weight loss before-and-after",
+        "crash diets"
+      ],
+      "active_90_days": true,
+      "band": "Maybe later"
+    },
+    {
+      "slug": "founders-who-lift",
+      "title": "Founders Who Lift",
+      "author": "Fictional Host Five",
+      "feed_url": "https://feeds.example.com/founders-who-lift.xml",
+      "website": "https://founderswholift.example.com/",
+      "guest_link": "",
+      "apple_url": "https://podcasts.example.com/founders-who-lift",
+      "description": "Business owners on training, energy and building a company without burning out.",
+      "genres": [
+        "Business",
+        "Fitness"
+      ],
+      "language": "en",
+      "episode_count": 80,
+      "last_episode_date": "2026-09-30",
+      "cadence_days": 14.0,
+      "guest_ratio": 0.8,
+      "recent_titles": [
+        "Scaling a gym brand with Tom Reyes",
+        "The founder who trains at 5am, with Lena Ward",
+        "Cash flow and cardio with Sam Ortiz"
+      ],
+      "sources": [
+        "apple"
+      ],
+      "feed_ok": true,
+      "score": 34,
+      "parts": {
+        "fit": 0,
+        "recency": 70,
+        "guests": 100,
+        "size": 100,
+        "cadence": 80
+      },
+      "reasons": [
+        "No clear overlap with who you help. Check it before you pitch.",
+        "Fresh episode on 2026-09-30.",
+        "Guest show: about 80% of recent titles are interviews.",
+        "Publishes fortnightly, 80 episodes so far."
+      ],
+      "refuse_hits": [],
+      "active_90_days": true,
+      "band": "Maybe later"
+    }
+  ]
+}
