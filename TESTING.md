@@ -14,11 +14,14 @@ python3 -m unittest -v
   guest format, size and cadence bands, the solo-show cap, the love-list lift and the refused-topic cap.
 - **Tracker** (`tests/test_tracker.py`): first nudge at 7 days, second at 10 more, stop at two, closed statuses never
   due, markdown round trip and hand edits. Rendered pages escape feed text and drop non-http links.
+- **Style** (`tests/test_style.py`): the style.json lookup order, broken files falling through, bad colours and
+  font names rejected, Rocha's words never inherited into another style, and a second style changing the shortlist
+  masthead text, the hero colour, the fonts and the invitation card, plus the call log.
 - **Discovery** (`tests/test_discover_live.py`): search terms, dedupe across sources, the Podcast Index auth header
   shape, and one live Apple Podcasts query that is skipped automatically when the network is unavailable.
 
 ## Results, 26 Oct 2026 (macOS, Python 3.12.8)
-- `python3 -m unittest`: 39 tests, all passed. The live Apple Podcasts query ran and passed (not skipped).
+- `python3 -m unittest`: 45 tests, all passed. The live Apple Podcasts query ran and passed (not skipped).
 - Live end to end: `discover.py --niche "postnatal running, postpartum fitness" --audience "new mums" --country GB
   --limit 25` found 25 real shows from 4 searches in 72 seconds, read all 25 feeds, stored zero email addresses.
   `score.py` ranked them with the fictional example profile and drew the shortlist page.

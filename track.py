@@ -19,6 +19,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from engine import tracker as T  # noqa: E402
 from engine.render import tracker_html  # noqa: E402
+from engine.style import load_style  # noqa: E402
 
 
 def _load(path: Path) -> list[dict]:
@@ -35,6 +36,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--link", default="")
     ap.add_argument("--notes", default=None)
     ap.add_argument("--date", default=None, help="YYYY-MM-DD, default today")
+    ap.add_argument("--style", default=None, help="path to a style.json")
     ap.add_argument("--today", default=None, help="treat today as YYYY-MM-DD (for due and render)")
     a = ap.parse_args(argv)
 
@@ -64,7 +66,7 @@ def main(argv: list[str] | None = None) -> int:
         elif a.command == "render":
             out = Path(a.out) if a.out else path.with_suffix(".html")
             out.parent.mkdir(parents=True, exist_ok=True)
-            out.write_text(tracker_html(rows, today, T.due(rows, today)), encoding="utf-8")
+            out.write_text(tracker_html(rows, today, T.due(rows, today), load_style(a.style)), encoding="utf-8")
             print(f"Drew {out} with {len(rows)} pitches.")
             return 0
     except ValueError as e:

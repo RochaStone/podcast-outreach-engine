@@ -55,6 +55,11 @@ Claude picks up where you left off every time, from the files in your folder.
 4. **Pitch.** One file per show in `pitches/`, written from your profile and the show's own recent episodes. You edit until it sounds like you. If you have a Gmail or Outlook connector, Claude saves it as a draft and tells you so. Otherwise you copy it. Either way, you press send.
 5. **Track.** Tell Claude when you've sent it. The call log in `tracker/tracker.md` sets your nudge dates: a first nudge after 7 days, a second 10 days later, then you let it go. Ask "who's due a nudge?" any time. Open `tracker/tracker.html` for the pink call log.
 
+## Make it yours
+Your pages take their colours, fonts, name and lines from one small `style.json` in your folder. Rocha's look ships as the example (`examples/style.rocha-coded.json`), with a blank `style.example.json` to fill in, and [STYLE.md](STYLE.md) explains every key.
+Say "make it mine" and Claude builds yours from your references, your palette and your words.
+The same file styles every Rocha Coded tool, so you make it once.
+
 ## What it will never do
 - **Send anything.** Not an email, not a DM, not a form. Drafts only. The send button is yours.
 - **Scrape emails or DMs.** It never looks up, guesses or stores a host's email address, phone number or social handles. Feed owner emails are skipped and any address found in a show description is removed before saving. You use the show's own public website or guest page.
@@ -71,6 +76,7 @@ Claude picks up where you left off every time, from the files in your folder.
 | `track.py` | Adds pitches, updates statuses, lists who is due a nudge, draws the call log |
 | `pitch/PITCH-GUIDE.md` | How every pitch is built, and the quality bar it has to pass |
 | `templates/guest-profile.md` | The ten-question profile template |
+| `style.example.json`, `STYLE.md` | Your look in one file, and what each key does |
 | `engine/` | The shared pieces: feed reading, scoring, tracker, the pink pages |
 | `examples/` | A fictional guest, a scored shortlist, a sample pitch and a sample call log. Nothing in it is real |
 | `tests/` | Unit tests and one live directory search. Run `python3 -m unittest` |

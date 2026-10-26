@@ -73,7 +73,7 @@ class RenderSafetyTest(unittest.TestCase):
         self.assertIn("dress code: lore", house)
         named = shortlist_html([], {"date": "2026-10-26", "name": "Juno <b>Ashby</b>"})
         self.assertIn("YOU ARE INVITED TO JUNO &lt;B&gt;ASHBY&lt;/B&gt;", named)
-        self.assertNotIn("THE ROCHEVERSE", named)
+        self.assertNotIn("YOU ARE INVITED TO THE ROCHEVERSE", named)
 
     def test_tracker_html_marks_due(self):
         rows = []

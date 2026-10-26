@@ -9,15 +9,64 @@ serif and sans when offline.
 from __future__ import annotations
 
 import json
+import re
 from datetime import date
 from html import escape
 
 from .feeds import safe_url
+from .style import BUNDLED, invite_lines, load_style
 from .tracker import OPEN_STATUSES
 
-FONTS = ("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900"
-         "&family=Archivo+Narrow:wght@500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400"
-         "&family=Permanent+Marker&family=Courier+Prime:wght@400;700&display=swap")
+# Known Google Fonts axes; any other family is requested plain (weight 400), which never errors.
+FONT_AXES = {
+    "Playfair Display": ":ital,wght@0,400..900;1,400..900",
+    "Bodoni Moda": ":ital,opsz,wght@0,6..96,400..900;1,6..96,400..900",
+    "Fraunces": ":ital,opsz,wght@0,9..144,400..900;1,9..144,400..900",
+    "Archivo Narrow": ":wght@500;700",
+    "Newsreader": ":ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400",
+    "Courier Prime": ":wght@400;700",
+}
+FALLBACKS = {
+    "masthead": "'Didot','Bodoni 72',Georgia,serif", "label": "'Arial Narrow',Helvetica,sans-serif",
+    "body": "Georgia,serif", "scrawl": "'Marker Felt','Comic Sans MS',cursive", "mono": "'Courier New',monospace",
+}
+
+
+def fonts_url(style: dict) -> str:
+    fams = []
+    for key in ("masthead", "label", "body", "scrawl", "mono"):
+        f = (style.get("fonts") or {}).get(key)
+        if f and f not in fams:
+            fams.append(f)
+    q = "&".join("family=" + f.replace(" ", "+") + FONT_AXES.get(f, "") for f in fams)
+    return f"https://fonts.googleapis.com/css2?{q}&display=swap"
+
+
+def root_css(style: dict) -> str:
+    p, f = style.get("palette", {}), style.get("fonts", {})
+
+    def fam(k):
+        return (f"'{f[k]}'," if f.get(k) else "") + FALLBACKS[k]
+    return (f":root{{--hot:{p.get('hero')};--candy:{p.get('accent')};--paper:{p.get('paper_pink')};"
+            f"--cream:{p.get('paper')};--ink:{p.get('ink')};--red:{p.get('marker')};--plum:{p.get('plum')};"
+            f"--gold:{p.get('gold')};--blue:{p.get('cool')};--white:#FFFFFF;--didone:{fam('masthead')};"
+            f"--tag:{fam('label')};--body:{fam('body')};--marker:{fam('scrawl')};--mono:{fam('mono')}}}")
+
+
+HOUSE_HEX = {"#FF2D8A": "hero", "#FFB3D1": "accent", "#F6EFE4": "paper", "#FFE1EC": "paper_pink",
+             "#111": "ink", "#D4A64A": "gold"}
+
+
+def recolor(svg: str, style: dict) -> str:
+    """Swap the house colours in a drawing for the style's palette (values are validated hex)."""
+    pal = style.get("palette", {})
+    return re.sub(r'"(#FF2D8A|#FFB3D1|#F6EFE4|#FFE1EC|#111|#D4A64A)"',
+                  lambda m: '"' + pal.get(HOUSE_HEX[m.group(1)], m.group(1)) + '"', svg)
+
+
+def _default_style() -> dict:
+    return load_style(explicit=str(BUNDLED))
+
 
 GRAIN = ("url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'>"
          "<filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/>"
@@ -25,11 +74,6 @@ GRAIN = ("url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' 
          "<rect width='100%' height='100%' filter='url(%23n)'/></svg>\")")
 
 BASE_CSS = """
-:root{--hot:#FF2D8A;--candy:#FFB3D1;--paper:#FFE1EC;--cream:#F6EFE4;--ink:#111111;--red:#E0202E;
---plum:#4A1033;--gold:#D4A64A;--blue:#BFD4EA;--white:#FFFFFF;
---didone:'Bodoni Moda','Didot','Bodoni 72',Georgia,serif;--tag:'Archivo Narrow','Arial Narrow',Helvetica,sans-serif;
---body:'Newsreader',Georgia,serif;--marker:'Permanent Marker','Marker Felt','Comic Sans MS',cursive;
---mono:'Courier Prime','Courier New',monospace}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);background-image:GRAIN;color:var(--ink);font-family:var(--body);
@@ -202,17 +246,18 @@ COUPE_SVG = """<svg viewBox="0 0 44 60" aria-hidden="true"><path d="M4 8 Q22 30 
 <path d="M22 22 L22 50 M12 54 L32 54" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
 <circle cx="31" cy="5" r="2.5" fill="#D4A64A"/><circle cx="36" cy="12" r="1.8" fill="#D4A64A"/></svg>"""
 
-HOUSE_INVITE = "THE ROCHEVERSE"
+def invite_card(style: dict, name: str | None) -> str:
+    """Invitation lines come from style.json. --name replaces who you are invited to."""
+    l1, l2, l3 = (escape(x) for x in invite_lines(style, name))
+    if not l1:
+        return ""
+    return (f'<div class="invite">{recolor(COUPE_SVG, style)}<p class="t1">{l1}</p>'
+            f'<p class="t2">{l2}</p><p class="t3">{l3}</p></div>')
 
 
-def invite_card(name: str | None) -> str:
-    """Her invitation line, verbatim. The user's name replaces THE ROCHEVERSE in their own outputs."""
-    who = escape((name or "").strip().upper()) or HOUSE_INVITE
-    return (f'<div class="invite">{COUPE_SVG}<p class="t1">YOU ARE INVITED TO {who}</p>'
-            '<p class="t2">come build your founder world</p><p class="t3">dress code: lore</p></div>')
-
-
-def shortlist_html(scored: list[dict], meta: dict) -> str:
+def shortlist_html(scored: list[dict], meta: dict, style: dict | None = None) -> str:
+    style = style or _default_style()
+    lines = style.get("lines", {})
     n = len(scored)
     ring = sum(1 for s in scored if s.get("score", 0) >= 75)
     today = meta.get("date") or date.today().isoformat()
@@ -224,18 +269,18 @@ def shortlist_html(scored: list[dict], meta: dict) -> str:
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Podcast Hotline</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="{FONTS}">
-<style>{BASE_CSS}{SHORTLIST_CSS}</style></head>
+<link rel="stylesheet" href="{escape(fonts_url(style))}">
+<style>{root_css(style)}{BASE_CSS}{SHORTLIST_CSS}</style></head>
 <body data-run="{run_id}"><div class="wrap">
 <header class="mast">
-<div class="top"><span class="tag">The podcast issue</span><span class="tag">{escape(today)}</span><span class="tag">Rocha Coded</span></div>
+<div class="top"><span class="tag">{escape(lines.get("masthead") or "The podcast issue")}</span><span class="tag">{escape(today)}</span><span class="tag">{escape(style.get("name") or "")}</span></div>
 <h1>Hotline</h1>
 <div class="grid"><div class="cover">
 <p class="scrawl">Call the girls!</p>
 <p class="line"><em>{n} shows</em> where {escape(niche)} is the conversation</p>
 <p class="line">{ring} ready to <em>ring today</em>, ranked by fit</p>
 <p class="line">Tick the ones you want. <em>You press send.</em></p>
-</div><div class="side">{PHONE_SVG}{invite_card(meta.get("name"))}</div></div>
+</div><div class="side">{recolor(PHONE_SVG, style)}{invite_card(style, meta.get("name"))}</div></div>
 </header>
 <div class="how tag"><span>Fit 35%</span><span>Fresh 20%</span><span>Guests 20%</span><span>Size 15%</span><span>Rhythm 10%</span></div>
 <main class="cards">{cards}</main>
@@ -272,7 +317,9 @@ font-family:var(--tag);font-weight:700;letter-spacing:.14em;text-transform:upper
 """
 
 
-def tracker_html(rows: list[dict], today: date, due_rows: list[dict]) -> str:
+def tracker_html(rows: list[dict], today: date, due_rows: list[dict], style: dict | None = None) -> str:
+    style = style or _default_style()
+    lines = style.get("lines", {})
     counts = {k: sum(1 for r in rows if r["status"] == k) for k in ("pitched", "nudged", "replied", "booked", "aired")}
     due_names = {r["show"] for r in due_rows}
     slips = []
@@ -295,17 +342,17 @@ def tracker_html(rows: list[dict], today: date, due_rows: list[dict]) -> str:
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Podcast Call Log</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="{FONTS}">
-<style>{BASE_CSS}{TRACKER_CSS}.mast h1{{font-size:clamp(56px,12vw,150px)}}</style></head>
+<link rel="stylesheet" href="{escape(fonts_url(style))}">
+<style>{root_css(style)}{BASE_CSS}{TRACKER_CSS}.mast h1{{font-size:clamp(56px,12vw,150px)}}</style></head>
 <body><div class="wrap">
 <header class="mast">
-<div class="top"><span class="tag">The call log</span><span class="tag">{escape(today.isoformat())}</span><span class="tag">Rocha Coded</span></div>
+<div class="top"><span class="tag">{escape(lines.get("masthead") or "The call log")}</span><span class="tag">{escape(today.isoformat())}</span><span class="tag">{escape(style.get("name") or "")}</span></div>
 <h1>Call Log</h1>
 <div class="grid"><div class="cover">
-<p class="scrawl">Everything works out for me</p>
+<p class="scrawl">{escape((lines.get("affirm") or "Every send is yours").capitalize())}</p>
 <p class="line"><em>{len(due_rows)} due</em> a nudge today</p>
 <p class="line">{open_n} still waiting, <em>{counts["booked"]} booked</em></p>
-</div>{PHONE_SVG}</div>
+</div>{recolor(PHONE_SVG, style)}</div>
 </header>
 <div class="stats">{stats}</div>
 <main class="slips">{body}</main>

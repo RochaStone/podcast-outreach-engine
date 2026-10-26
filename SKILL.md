@@ -45,6 +45,17 @@ Look at what exists, then say in one line where they are and what comes next.
 Always re-read `profile/guest-profile.md` before discover, score or pitch. They may have edited it.
 If they ask for a specific step ("draft a pitch for X", "who's due a nudge"), go straight there.
 
+## Make it hers (style.json)
+The pages read one shared `style.json`: `./style.json` in their folder, then `~/.rocha-coded/style.json`, then the
+bundled `KIT/examples/style.rocha-coded.json` (Rocha's own look, shipped as the example). See `KIT/STYLE.md`.
+- If they have no `style.json`, offer once to make one (after the profile, or whenever they ask "make it mine"):
+  ask for 3 to 5 references (screenshots, links, a Pinterest board), a palette if they have one, and the words
+  they say a lot. Look at the references. Write `style.json` in their folder from `KIT/style.example.json`.
+  Then render one sample (re-run score, or `track.py render`) and show it to them. Adjust until they love it.
+- Never assume their taste is Rocha's. Never copy Rocha's lines into their file. Their words only.
+- If they decline, the bundled example is used and that is fine.
+- Pass `--style <path>` to score.py or track.py only if the file lives somewhere else.
+
 ## 1. Guest profile (ten questions, one per turn)
 Ask one question, wait for the answer, then ask the next. Warm, short, no lectures. Keep their exact words.
 1. Who are you? Your name and what you do, the way you'd say it at a dinner party.
@@ -81,7 +92,8 @@ python3 KIT/discover.py --niche "phrase one, phrase two" --audience "who listens
 ```
 python3 KIT/score.py shows/shows.json --profile profile/guest-profile.md --out shortlist/ --name "<their name>"
 ```
-Take the name from their answer to "Who are you?". It goes on the invitation card at the top of the page.
+Take the name from their answer to "Who are you?". It sets who the invitation card at the top of the page is for,
+over whatever their `style.json` says.
 Then tell them, in plain words, the top five with one reason each, and point them to `shortlist/shortlist.html`
 (open it for them if you can). They tick "Pitch this one" on the cards and press "Copy picks for Claude", or just
 tell you which shows. Scores: fit with who they help (35%), fresh episodes (20%), takes guests (20%), size by

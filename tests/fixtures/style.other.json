@@ -1,0 +1,8 @@
+{
+  "name": "Fictional Studio",
+  "owner": "Mara Quill",
+  "handle": "@maraquill.example",
+  "palette": { "hero": "#1F6F5C", "accent": "#A7D7C5", "paper": "#FFFDF7", "paper_pink": "#EEF6F2", "ink": "#1A1A1A", "marker": "#B5462B" },
+  "fonts": { "masthead": "Fraunces", "scrawl": "Caveat" },
+  "lines": { "masthead": "THE QUILL QUARTERLY", "scrawl": "say it plainly", "stamp": "TEA", "affirm": "ONE GOOD CALL A DAY" }
+}
