@@ -30,11 +30,7 @@
     "stamp": "LORE",
     "celebrate": "I AM SO LUCKY",
     "affirm": "EVERYTHING WORKS OUT FOR ME",
-    "invite": [
-      "YOU ARE INVITED TO THE ROCHEVERSE",
-      "come build your founder world",
-      "dress code: lore"
-    ],
+    "invite": "YOU ARE INVITED TO THE ROCHEVERSE / come build your founder world / dress code: lore",
     "magazine": "ROCHEVERSE"
   },
   "references": [],

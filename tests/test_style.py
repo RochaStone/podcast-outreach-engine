@@ -52,6 +52,20 @@ class StyleLoadTest(unittest.TestCase):
         self.assertEqual(invite_lines(other, "Juno")[0], "YOU ARE INVITED TO JUNO")
 
 
+class InviteFormsTest(unittest.TestCase):
+    def test_string_and_list_forms(self):
+        s = {"lines": {"invite": "YOU ARE INVITED TO A / come in / dress code: b"}}
+        self.assertEqual(invite_lines(s), ["YOU ARE INVITED TO A", "come in", "dress code: b"])
+        s = {"lines": {"invite": ["YOU ARE INVITED TO A", "come in", "dress code: b"]}}
+        self.assertEqual(invite_lines(s), ["YOU ARE INVITED TO A", "come in", "dress code: b"])
+        self.assertEqual(invite_lines(s, "Juno")[0], "YOU ARE INVITED TO JUNO")
+
+    def test_bundled_uses_string_form_and_empty_references(self):
+        raw = json.loads(BUNDLED.read_text(encoding="utf-8"))
+        self.assertIsInstance(raw["lines"]["invite"], str)
+        self.assertEqual(raw["references"], [])
+
+
 class SecondStyleRenderTest(unittest.TestCase):
     def test_shortlist_masthead_and_hero_colour_change(self):
         house = shortlist_html([SHOW], {"date": "2026-10-26"})

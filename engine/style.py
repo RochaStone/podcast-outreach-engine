@@ -82,6 +82,8 @@ def invite_lines(style: dict, name: str | None = None) -> list[str]:
     """Three lines for the invitation card. --name replaces who you are invited to."""
     lines = style.get("lines", {}) or {}
     inv = lines.get("invite")
+    if isinstance(inv, str):  # shared schema: one string, " / " between lines
+        inv = [x.strip() for x in inv.split(" / ")]
     if isinstance(inv, list) and len(inv) == 3 and all(isinstance(x, str) for x in inv):
         out = list(inv)
     else:

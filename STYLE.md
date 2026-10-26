@@ -38,7 +38,7 @@ To start, copy `style.example.json` to `style.json` in your folder and fill it i
 | `lines.stamp` | One word: the "dress code" on the invitation card | `LORE` |
 | `lines.affirm` | The scrawled line on the call log | `EVERYTHING WORKS OUT FOR ME` |
 | `lines.headline`, `lines.todo`, `lines.celebrate` | Used by other Rocha Coded tools | |
-| `lines.invite` | Optional. Exactly three lines for the invitation card, used as written | Rocha's invitation |
+| `lines.invite` | Optional. The invitation card as one line, with " / " between its three parts, used as written | `YOU ARE INVITED TO THE ROCHEVERSE / come build your founder world / dress code: lore` |
 | `references` | Images or links Claude looks at when you say "make it mine" | screenshots, a Pinterest board |
 | `notes` | Your look in a sentence | `Hot-girl editorial.` |
 
