@@ -18,21 +18,23 @@ To start, copy `style.example.json` to `style.json` in your folder and fill it i
 | `owner` | Your name. Used on the invitation card when there are no invite lines | `Rocha` |
 | `handle` | Your social handle | `@rocheverse` |
 | `site` | Your website | `https://thrivingera.com` |
-| `palette.hero` | Your main colour: the masthead, score dials, buttons | `#FF2D8A` |
-| `palette.accent` | Soft partner to the hero: dial track, handset | `#FFB3D1` |
-| `palette.paper` | Card colour | `#F6EFE4` |
-| `palette.paper_pink` | Page background | `#FFE1EC` |
-| `palette.ink` | Text and outlines | `#111111` |
-| `palette.marker` | Scrawled lines and "due" marks | `#E0202E` |
-| `palette.plum` | Deep accent: links, shadows | `#4A1033` |
-| `palette.gold` | Small sparkle details | `#D4A64A` |
-| `palette.cool` | A rare cool accent (other tools use it) | `#BFD4EA` |
-| `fonts.masthead` | Big headline font | `Playfair Display` |
-| `fonts.label` | Small caps labels | `Archivo Narrow` |
-| `fonts.body` | Reading text | `Newsreader` |
-| `fonts.scrawl` | Handwriting | `Permanent Marker` |
-| `fonts.mono` | Typewriter details | `Courier Prime` |
-| `motif` | The look other tools draw in. This tool always uses the rotary phone | `rotary` |
+| `palette.hero` | Your GROUND colour: the masthead band, rank tabs, score bars, the phone body | `#50163C` |
+| `palette.accent` | Your one accent: pills, score dials, the copy button | `#FE9DCA` |
+| `palette.paper` | Page and card colour | `#FFF7F4` |
+| `palette.paper_pink` | Call log slips, dial tracks | `#FFE3F1` |
+| `palette.ink` | Text and outlines | `#3B1230` |
+| `palette.marker` | The script line on cream | `#C2246E` |
+| `palette.plum` | Deep accent (other tools use it) | `#50163C` |
+| `palette.wine` | Text on cream for invitations and links | `#682047` |
+| `palette.gold` | Hairlines, the dial ring, the phone details | `#E9B949` |
+| `palette.cool` | Alternate pill fill ("worth a ring") | `#B9B3F5` |
+| `fonts.masthead` | Big headline font | `Fraunces` |
+| `fonts.label` | Labels and buttons | `Bricolage Grotesque` |
+| `fonts.body` | Reading text | `Fraunces` |
+| `fonts.script` | One signature script line per page | `Pinyon Script` |
+| `fonts.scrawl` | Hand marker (other tools use it) | `Permanent Marker` |
+| `fonts.mono` | Numbers and dates | `DM Mono` |
+| `motif` | The look other tools draw in. This tool always uses the rotary phone | `guest-check` |
 | `lines.masthead` | Top left of the shortlist and call log | `THE ROCHEVERSE TIMES` |
 | `lines.scrawl` | Second line of the invitation card | `build your founder world` |
 | `lines.stamp` | One word: the "dress code" on the invitation card | `LORE` |
@@ -40,7 +42,7 @@ To start, copy `style.example.json` to `style.json` in your folder and fill it i
 | `lines.headline`, `lines.todo`, `lines.celebrate` | Used by other Rocha Coded tools | |
 | `lines.invite` | Optional. The invitation card as one line, with " / " between its three parts, used as written | `YOU ARE INVITED TO THE ROCHEVERSE / come build your founder world / dress code: lore` |
 | `references` | Images or links Claude looks at when you say "make it mine" | screenshots, a Pinterest board |
-| `notes` | Your look in a sentence | `Hot-girl editorial.` |
+| `notes` | Your look in a sentence | `Editorial and certain, leaning dark.` |
 
 ## Rules
 - Colours are hex codes like `#1F6F5C`. Anything else is ignored and the example colour is used.

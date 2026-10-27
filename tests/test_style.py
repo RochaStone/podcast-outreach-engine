@@ -71,11 +71,13 @@ class SecondStyleRenderTest(unittest.TestCase):
         house = shortlist_html([SHOW], {"date": "2026-10-26"})
         other = shortlist_html([SHOW], {"date": "2026-10-26"}, load_style(str(OTHER)))
         self.assertIn("THE ROCHEVERSE TIMES", house)
-        self.assertIn("--hot:#FF2D8A", house)
+        self.assertIn("--ground:#50163C", house)  # palette.hero is the ground
+        for retired in ("Playfair", "Archivo", "Newsreader", "Courier", "#FF2D8A"):
+            self.assertNotIn(retired, house)
         self.assertIn("THE QUILL QUARTERLY", other)
         self.assertNotIn("THE ROCHEVERSE TIMES", other)
-        self.assertIn("--hot:#1F6F5C", other)
-        self.assertNotIn("#FF2D8A", other)
+        self.assertIn("--ground:#1F6F5C", other)
+        self.assertNotIn("--ground:#50163C", other)
         self.assertIn("family=Fraunces", other)
         self.assertIn("YOU ARE INVITED TO MARA QUILL", other)
 
@@ -85,7 +87,7 @@ class SecondStyleRenderTest(unittest.TestCase):
         html = tracker_html(rows, date(2026, 10, 9), T.due(rows, date(2026, 10, 9)), load_style(str(OTHER)))
         self.assertIn("THE QUILL QUARTERLY", html)
         self.assertIn("One good call a day", html)
-        self.assertIn("--hot:#1F6F5C", html)
+        self.assertIn("--ground:#1F6F5C", html)
 
 
 if __name__ == "__main__":

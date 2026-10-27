@@ -7,7 +7,32 @@ Claude finds the podcasts your people listen to, scores them for you, drafts the
 **Every send is yours.** Nothing goes out on its own. No auto-send, no scraped inboxes, no DMs fired off while you sleep.
 You get a ranked shortlist, a pitch per show that sounds like you, and a call log that tells you who is due a nudge.
 
-<p align="center"><img src="docs/img/shortlist.png" width="720" alt="A pink magazine-style page called Hotline with a rotary phone and Rolodex cards, one per podcast, each with a score, reasons it fits and a Pitch this one checkbox"></p>
+<p align="center"><img src="docs/img/shortlist.png" width="720" alt="A cream page with a plum Hotline masthead, a rotary phone, an invitation card and Rolodex cards, one per podcast, each with a score, reasons it fits and a Pitch this one checkbox"></p>
+
+## Start here
+Five steps, about ten minutes, and you never have to touch code. This is the Claude Code path. Using the Claude desktop app's Cowork instead? Skip to [Claude Cowork](#claude-cowork), it is even shorter.
+
+1. **Open the terminal.** The *terminal* is the app where you type instructions to your computer. On a Mac, open Finder, then Applications > Utilities > Terminal. You will see a small window with a blinking cursor. That is all it is.
+
+2. **Check that Python is there.** This asks your computer which version of Python (the language the tool is written in) it has.
+   ```sh
+   python3 --version
+   ```
+   You will see something like `Python 3.12.8`. Anything from 3.10 up is perfect.
+
+3. **Copy the tool onto your computer.** To *clone* means to download a copy of the tool's folder. This puts it where Claude Code looks for skills (a *skill* is a set of instructions Claude follows).
+   ```sh
+   git clone https://github.com/RochaStone/podcast-outreach-engine ~/.claude/skills/podcast-outreach-engine
+   ```
+   You will see `Cloning into ...` and then your cursor comes back. That means it worked.
+
+4. **Make a home for your podcast work and open Claude there.** This makes a folder called `podcast-outreach`, steps into it, and starts Claude Code.
+   ```sh
+   mkdir -p ~/podcast-outreach && cd ~/podcast-outreach && claude
+   ```
+   You will see Claude Code's welcome screen.
+
+5. **Say "get me on podcasts".** Claude introduces the plan and asks you the first of ten questions about you. Answer in your own words. From here, Claude does the rest and tells you what is happening at every step.
 
 ## What you get
 - **A guest profile in your words.** Ten questions, one at a time. Who you help, what changes for them, the stories you tell, the topics you refuse. It becomes the brief for every pitch.
@@ -18,7 +43,7 @@ You get a ranked shortlist, a pitch per show that sounds like you, and a call lo
 This didn't exist, so I built it.
 
 ## Install
-It runs on your own computer, in your own folder. You need Python 3.10 or newer (already on most Macs and Linux machines) and an internet connection. Nothing else to install. No account, no server, no API key.
+It runs on your own computer, in your own folder. You need Python 3.10 or newer (already on most Macs and Linux machines) and an internet connection. Nothing else to install. No account, no server, and no API key (a private password one program uses to talk to another).
 
 | Where you use it | Install it | Start it |
 |---|---|---|
@@ -31,11 +56,11 @@ Tested end to end in Claude Code on macOS. Cowork runs the same steps inside its
 ```sh
 git clone https://github.com/RochaStone/podcast-outreach-engine ~/.claude/skills/podcast-outreach-engine
 ```
-Then start Claude Code in the folder you want your podcast work saved in (or anywhere, and it will use `~/podcast-outreach/`) and say "get me on podcasts". To update later: `git -C ~/.claude/skills/podcast-outreach-engine pull`.
+Then start Claude Code in the folder you want your podcast work saved in (if you start it anywhere else, Claude uses `~/podcast-outreach/` for you) and say "get me on podcasts". To update later: `git -C ~/.claude/skills/podcast-outreach-engine pull`.
 
 ### Claude Cowork
 Cowork (the Claude desktop app) runs tasks in a Linux sandbox on your computer that can only reach the folders you give it.
-1. Download `podcast-outreach-engine.zip` from the [latest release](https://github.com/RochaStone/podcast-outreach-engine/releases/latest).
+1. Download `podcast-outreach-engine.zip` (a *zip* is one compressed file that holds the whole tool folder) from the [latest release](https://github.com/RochaStone/podcast-outreach-engine/releases/latest).
 2. In the Claude desktop app: Customize > Skills, then + > Create skill > Upload a skill, and pick the zip.
 3. In Settings > Capabilities, turn on code execution and file creation, and allow network access so it can search podcast directories.
 4. Make a folder for this, for example `podcast-outreach` in your home folder. Start a Cowork task, give it access to that folder, and ask: "Build me a podcast shortlist."
@@ -44,16 +69,23 @@ Cowork (the Claude desktop app) runs tasks in a Linux sandbox on your computer t
 If the sandbox can't reach the internet on your setup, use Claude Code instead.
 
 ### Optional: a second directory
-Search uses the Apple Podcasts directory, which needs no key. For wider results, get free keys from [Podcast Index](https://api.podcastindex.org/signup), copy `.env.example` to `.env` in your podcast folder and paste them in. Your `.env` stays on your computer.
+Search uses the Apple Podcasts directory, which needs no key. For wider results, get free keys from [Podcast Index](https://api.podcastindex.org/signup). Then copy `.env.example` to a file called `.env` in your podcast folder and paste them in. A `.env` file is a small private settings file that holds keys. It stays on your computer and is never shared.
 
 ## The five steps
 Claude picks up where you left off every time, from the files in your folder.
 
 1. **Guest profile.** Ten questions, one per turn. Saved as `profile/guest-profile.md`. Edit it whenever you like. Claude re-reads it every run.
-2. **Discover.** Claude searches the podcast directories with words from your profile, then reads each show's public feed: last episode, how often they publish, how many episodes, whether the titles look like interviews, and the show's public website or "be a guest" page when the feed links one. Saved as `shows/shows.json`.
+2. **Discover.** Claude searches the podcast directories with words from your profile, then reads each show's public RSS feed (the public list every podcast publishes of its episodes, the same one podcast apps read): last episode, how often they publish, how many episodes, whether the titles look like interviews, and the show's public website or "be a guest" page when the feed links one. Saved as `shows/shows.json`.
 3. **Score.** Every show gets a score out of 100 with reasons. Shows on your love list get a lift. Shows built on a topic you refuse sink. Open `shortlist/shortlist.html`, tick "Pitch this one" on the cards you want, and press "Copy picks for Claude".
 4. **Pitch.** One file per show in `pitches/`, written from your profile and the show's own recent episodes. You edit until it sounds like you. If you have a Gmail or Outlook connector, Claude saves it as a draft and tells you so. Otherwise you copy it. Either way, you press send.
-5. **Track.** Tell Claude when you've sent it. The call log in `tracker/tracker.md` sets your nudge dates: a first nudge after 7 days, a second 10 days later, then you let it go. Ask "who's due a nudge?" any time. Open `tracker/tracker.html` for the pink call log.
+5. **Track.** Tell Claude when you've sent it. The call log in `tracker/tracker.md` sets your nudge dates: a first nudge after 7 days, a second 10 days later, then you let it go. Ask "who's due a nudge?" any time. Open `tracker/tracker.html` for the call log page.
+
+## If it goes wrong
+These happen to almost everyone the first time. Each one has a quick fix.
+
+- **"certificate verify failed" or every search fails on a Mac.** Python from python.org sometimes arrives without its security certificates. Open Finder, then Applications > Python 3.x, and double-click `Install Certificates.command` once. Then ask Claude to search again.
+- **"command not found: python3" or "command not found: git".** Your Mac needs its developer tools. Type `xcode-select --install` in the terminal and click Install in the window that appears. When it finishes, start again from step 2.
+- **Only a handful of shows came back.** Your search words were very specific, which is a good sign about your niche. Tell Claude "try broader words" and it will search again with wider phrases. In Cowork, also check that network access is turned on in Settings > Capabilities.
 
 ## Make it yours
 Your pages take their colours, fonts, name and lines from one small `style.json` in your folder. Rocha's look ships as the example (`examples/style.rocha-coded.json`), with a blank `style.example.json` to fill in, and [STYLE.md](STYLE.md) explains every key.
@@ -77,7 +109,7 @@ The same file styles every Rocha Coded tool, so you make it once.
 | `pitch/PITCH-GUIDE.md` | How every pitch is built, and the quality bar it has to pass |
 | `templates/guest-profile.md` | The ten-question profile template |
 | `style.example.json`, `STYLE.md` | Your look in one file, and what each key does |
-| `engine/` | The shared pieces: feed reading, scoring, tracker, the pink pages |
+| `engine/` | The shared pieces: feed reading, scoring, tracker, the Hotline and Call Log pages |
 | `examples/` | A fictional guest, a scored shortlist, a sample pitch and a sample call log. Nothing in it is real |
 | `tests/` | Unit tests and one live directory search. Run `python3 -m unittest` |
 

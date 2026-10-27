@@ -2,184 +2,196 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Podcast Hotline</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Archivo+Narrow:wght@500;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&amp;family=Permanent+Marker&amp;family=Courier+Prime:wght@400;700&amp;display=swap">
-<style>:root{--hot:#FF2D8A;--candy:#FFB3D1;--paper:#FFE1EC;--cream:#F6EFE4;--ink:#111111;--red:#E0202E;--plum:#4A1033;--gold:#D4A64A;--blue:#BFD4EA;--white:#FFFFFF;--didone:'Playfair Display','Didot','Bodoni 72',Georgia,serif;--tag:'Archivo Narrow','Arial Narrow',Helvetica,sans-serif;--body:'Newsreader',Georgia,serif;--marker:'Permanent Marker','Marker Felt','Comic Sans MS',cursive;--mono:'Courier Prime','Courier New',monospace}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&amp;family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Pinyon+Script&amp;family=Permanent+Marker&amp;family=DM+Mono:ital,wght@0,400;0,500;1,400&amp;display=swap">
+<style>:root{--ground:#50163C;--candy:#FE9DCA;--cream:#FFF7F4;--blush:#FFE3F1;--ink:#3B1230;--magenta:#C2246E;--plum:#50163C;--wine:#682047;--gold:#E9B949;--lilac:#B9B3F5;--display:'Fraunces',Georgia,serif;--label:'Bricolage Grotesque',system-ui,-apple-system,'Segoe UI',sans-serif;--body:'Fraunces',Georgia,serif;--script:'Pinyon Script',cursive;--marker:'Permanent Marker',cursive;--mono:'DM Mono',ui-monospace,Menlo,monospace}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.05 0 0 0 0 0.15 0 0 0 .07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");color:var(--ink);font-family:var(--body);
+body{margin:0;background:var(--cream);background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.2 0 0 0 0 0.05 0 0 0 0 0.15 0 0 0 .06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");color:var(--ink);font-family:var(--body);
 font-size:17px;line-height:1.45}
-a{color:var(--plum)}
-.wrap{max-width:1180px;margin:0 auto;padding:28px 16px 120px}
-.tag{font-family:var(--tag);text-transform:uppercase;letter-spacing:.14em;font-weight:700;font-size:12px}
-.mast{position:relative;border-bottom:3px solid var(--ink);padding-bottom:18px;margin-bottom:28px;overflow:hidden}
-.mast .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.mast h1{font-family:var(--didone);font-weight:900;color:var(--hot);margin:4px 0 0;line-height:.82;
-font-size:clamp(64px,15vw,190px);letter-spacing:-.02em;text-shadow:3px 3px 0 var(--plum)}
-.mast .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center}
-.cover{display:flex;flex-direction:column;gap:14px}.cover p{margin:0}.cover .scrawl{margin-bottom:14px}
-.scrawl{font-family:var(--marker);color:var(--red);font-size:clamp(30px,5vw,54px);transform:rotate(-4deg);
-line-height:1;margin:6px 0 4px}
-.line{font-family:var(--didone);font-size:clamp(20px,2.6vw,28px);font-weight:600;line-height:1.1;max-width:22ch}
-.line em{color:var(--hot);font-style:italic}
-.phone{width:100%;max-width:360px;justify-self:center;filter:drop-shadow(6px 10px 0 rgba(74,16,51,.25))}
-.foot{margin-top:48px;border-top:3px solid var(--ink);padding-top:14px;display:flex;justify-content:space-between;
-gap:12px;flex-wrap:wrap}
-.yours{font-family:var(--marker);color:var(--red);font-size:22px}
-.side{display:flex;flex-direction:column;align-items:center;gap:18px}
-.invite{position:relative;background:var(--cream);border:2.5px solid var(--ink);padding:16px 22px 16px 74px;
-transform:rotate(2deg);box-shadow:5px 6px 0 rgba(74,16,51,.35);max-width:380px;text-align:left}
-.invite svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:44px}
-.invite .t1{font-family:var(--didone);font-weight:800;font-size:17px;letter-spacing:.06em;line-height:1.15;margin:0}
-.invite .t2{font-family:var(--didone);font-style:italic;font-size:17px;color:var(--hot);margin:4px 0 0}
-.invite .t3{font-family:var(--marker);color:var(--red);font-size:17px;margin:4px 0 0}
-@media (max-width:760px){.mast .grid{grid-template-columns:1fr}.phone{max-width:240px}}
+a{color:var(--wine);text-underline-offset:3px;text-decoration-thickness:1px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px 120px}
+.lab{font-family:var(--label);font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.band{background:var(--ground);color:var(--cream);margin:0 -16px;padding:22px 32px 40px;position:relative}
+.band::after{content:"";position:absolute;left:32px;right:32px;bottom:14px;border-top:1px solid var(--gold)}
+.band .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;opacity:.85}
+.band .top .date{font-family:var(--mono);font-weight:400;letter-spacing:.04em;text-transform:none}
+.band h1{font-family:var(--display);font-weight:900;color:var(--cream);margin:8px 0 0;line-height:.95;
+font-size:clamp(64px,14vw,176px);letter-spacing:-.025em}
+.cover-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;padding:30px 0 26px;
+border-bottom:1px solid var(--gold);margin-bottom:30px}
+.cover{display:flex;flex-direction:column;gap:12px}.cover p{margin:0}
+.script{font-family:var(--script);color:var(--magenta);font-size:clamp(44px,6.5vw,76px);line-height:1;margin:0 0 6px;
+font-weight:400}
+.line{font-family:var(--display);font-size:clamp(20px,2.5vw,28px);font-weight:600;line-height:1.12;max-width:22ch}
+.line em{color:var(--wine);font-style:italic;font-weight:600}
+.side{display:flex;flex-direction:column;align-items:center;gap:20px}
+.phone{width:100%;max-width:330px;filter:drop-shadow(0 14px 18px rgba(59,18,48,.22))}
+.invite{position:relative;background:var(--cream);color:var(--wine);border:1px solid var(--gold);outline:1px solid var(--wine);
+outline-offset:4px;padding:16px 22px 16px 70px;transform:rotate(1.5deg);box-shadow:0 12px 24px rgba(59,18,48,.18);
+max-width:380px;text-align:left;margin:6px}
+.invite svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:40px}
+.invite .t1{font-family:var(--display);font-weight:800;font-size:16px;letter-spacing:.06em;line-height:1.2;margin:0}
+.invite .t2{font-family:var(--display);font-style:italic;font-size:17px;margin:4px 0 0}
+.invite .t3{font-family:var(--mono);font-size:13px;letter-spacing:.06em;margin:6px 0 0}
+.pill{display:inline-block;border-radius:999px;padding:4px 12px;font-family:var(--label);font-weight:800;font-size:11px;
+letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+.foot{margin-top:52px;border-top:1px solid var(--gold);padding-top:14px;display:flex;justify-content:space-between;
+gap:12px;flex-wrap:wrap;align-items:baseline}
+.yours{font-family:var(--display);font-style:italic;color:var(--wine);font-size:20px}
+.empty{font-family:var(--display);font-size:26px}
+@media (max-width:760px){.cover-grid{grid-template-columns:1fr}.phone{max-width:230px}.band{padding:18px 16px 24px}
+.band::after{left:16px;right:16px}}
 
-.how{display:flex;gap:18px;flex-wrap:wrap;margin:0 0 22px;align-items:center}
-.how span{background:var(--white);border:2px solid var(--ink);padding:4px 10px;box-shadow:3px 3px 0 var(--ink)}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:34px 26px}
-.card{position:relative;background:var(--cream);border:2.5px solid var(--ink);border-radius:18px 18px 14px 14px;
-padding:22px 20px 46px;box-shadow:6px 8px 0 rgba(17,17,17,.85);display:flex;flex-direction:column;gap:10px}
-.card:nth-child(3n+2){transform:rotate(.6deg)}.card:nth-child(3n){transform:rotate(-.5deg)}
-.card::before,.card::after{content:"";position:absolute;bottom:-3px;width:34px;height:20px;background:var(--paper);
-border:2.5px solid var(--ink);border-bottom:none;border-radius:16px 16px 0 0}
+.how{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 30px;align-items:center}
+.how span{border:1px solid var(--gold);border-radius:999px;padding:4px 12px;font-family:var(--label);font-weight:800;
+font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.how b{font-family:var(--mono);font-weight:500;letter-spacing:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:40px 26px}
+.card{position:relative;background:var(--cream);border:1.5px solid var(--ink);border-radius:16px 16px 12px 12px;
+padding:24px 20px 46px;box-shadow:0 14px 28px rgba(59,18,48,.16),0 2px 0 rgba(59,18,48,.25);display:flex;
+flex-direction:column;gap:11px}
+.card::before,.card::after{content:"";position:absolute;bottom:-2px;width:34px;height:19px;background:var(--cream);
+border:1.5px solid var(--ink);border-bottom:none;border-radius:16px 16px 0 0}
 .card::before{left:calc(50% - 64px)}.card::after{left:calc(50% + 30px)}
-.tab{position:absolute;top:-19px;right:22px;background:var(--hot);color:var(--white);border:2.5px solid var(--ink);
-border-bottom:none;border-radius:10px 10px 0 0;padding:2px 14px 3px;font-family:var(--mono);font-weight:700}
-.rank{position:absolute;top:-19px;left:22px;background:var(--ink);color:var(--paper);border-radius:10px 10px 0 0;
-padding:2px 12px 3px;font-family:var(--mono);font-weight:700}
+.rank,.tab{position:absolute;top:-17px;border-radius:9px 9px 0 0;padding:2px 12px 2px;font-family:var(--mono);
+font-weight:500;font-size:14px}
+.rank{left:20px;background:var(--ground);color:var(--cream)}
+.tab{right:20px;background:var(--candy);color:var(--ink);border:1.5px solid var(--ink);border-bottom:none}
 .head{display:flex;gap:14px;align-items:center}
-.dial{flex:0 0 auto;width:74px;height:74px;border-radius:50%;border:2.5px solid var(--ink);
-background:conic-gradient(var(--hot) calc(var(--s)*1%),var(--candy) 0);display:grid;place-items:center}
-.dial b{width:48px;height:48px;border-radius:50%;background:var(--cream);border:2px solid var(--ink);display:grid;
-place-items:center;font-family:var(--didone);font-size:22px;font-weight:900}
-.title{font-family:var(--didone);font-weight:800;font-size:22px;line-height:1.08;margin:0}
-.by{font-family:var(--tag);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--plum);margin-top:4px}
-.band{align-self:flex-start;font-family:var(--tag);font-weight:700;text-transform:uppercase;letter-spacing:.12em;
-font-size:12px;padding:3px 9px;border:2px solid currentColor;transform:rotate(-2deg)}
-.b-hi{color:var(--red)}.b-mid{color:var(--plum)}.b-lo{color:#6b5a62}
-.why{margin:0;padding-left:18px}.why li{margin:2px 0}
-.bars{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;font-family:var(--mono);font-size:11px;text-align:center;line-height:1.2}.bars b{font-size:13px}
-.bars i{display:block;height:6px;background:var(--candy);border:1px solid var(--ink);margin-top:3px;position:relative}
-.bars i::after{content:"";position:absolute;inset:0 auto 0 0;width:calc(var(--v)*1%);background:var(--hot)}
-.links{display:flex;gap:12px;flex-wrap:wrap;font-family:var(--tag);font-weight:700;text-transform:uppercase;
-letter-spacing:.08em;font-size:13px}
-.pick{display:flex;align-items:center;gap:10px;margin-top:auto;font-family:var(--marker);font-size:20px;
-color:var(--red);cursor:pointer;user-select:none}
-.pick input{appearance:none;-webkit-appearance:none;width:26px;height:26px;border:2.5px solid var(--ink);
-background:var(--white);border-radius:4px;display:grid;place-items:center;margin:0;cursor:pointer}
-.pick input:checked{background:var(--hot)}
-.pick input:checked::after{content:"\2713";color:var(--white);font-weight:900;font-size:18px;font-family:var(--body)}
-.pick input:focus-visible{outline:3px solid var(--plum);outline-offset:2px}
-.bar{position:fixed;left:0;right:0;bottom:0;background:var(--ink);color:var(--paper);padding:12px 16px;display:flex;
-gap:14px;align-items:center;justify-content:center;flex-wrap:wrap;z-index:5}
-.bar button{font-family:var(--tag);font-weight:700;text-transform:uppercase;letter-spacing:.12em;background:var(--hot);
-color:var(--white);border:2px solid var(--paper);padding:8px 16px;cursor:pointer;font-size:14px}
+.dial{flex:0 0 auto;width:74px;height:74px;border-radius:50%;border:1.5px solid var(--gold);padding:5px;
+background:conic-gradient(var(--candy) calc(var(--s)*1%),var(--blush) 0) content-box;display:grid;place-items:center;
+position:relative}
+.dial b{position:absolute;inset:14px;border-radius:50%;background:var(--cream);border:1px solid var(--gold);display:grid;
+place-items:center;font-family:var(--mono);font-weight:500;font-size:18px;color:var(--ink)}
+.title{font-family:var(--display);font-weight:800;font-size:22px;line-height:1.08;margin:0}
+.by{font-family:var(--label);font-weight:800;font-size:12px;color:var(--wine);margin-top:4px}
+.p-hi{background:var(--candy)}.p-mid{background:var(--lilac)}.p-lo{background:transparent;border:1px solid var(--ink);opacity:.7}
+.card .pill{align-self:flex-start}
+.why{margin:0;padding-left:18px;font-size:16px}.why li{margin:2px 0}.why li::marker{color:var(--gold)}
+.bars{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;text-align:center;line-height:1.25;padding-top:4px;
+border-top:1px solid var(--gold)}
+.bars div{font-family:var(--label);font-weight:800;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.bars b{display:block;font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:0}
+.bars i{display:block;height:5px;background:var(--blush);margin-top:3px;position:relative;border-radius:3px;overflow:hidden}
+.bars i::after{content:"";position:absolute;inset:0 auto 0 0;width:calc(var(--v)*1%);background:var(--ground)}
+.links{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--label);font-weight:800;font-size:13px}
+.pick{display:flex;align-items:center;gap:10px;margin-top:auto;font-family:var(--label);font-weight:800;font-size:15px;
+color:var(--ink);cursor:pointer;user-select:none}
+.pick input{appearance:none;-webkit-appearance:none;width:24px;height:24px;border:1.5px solid var(--ink);
+background:var(--cream);border-radius:6px;display:grid;place-items:center;margin:0;cursor:pointer}
+.pick input:checked{background:var(--ground);border-color:var(--ground)}
+.pick input:checked::after{content:"\2713";color:var(--cream);font-weight:900;font-size:16px;font-family:var(--body)}
+.pick input:focus-visible{outline:2px solid var(--magenta);outline-offset:2px}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--ground);color:var(--cream);padding:12px 16px;display:flex;
+gap:14px;align-items:center;justify-content:center;flex-wrap:wrap;z-index:5;border-top:1px solid var(--gold)}
+.bar b{font-family:var(--mono);font-weight:500}
+.bar button{font-family:var(--label);font-weight:800;background:var(--candy);color:var(--ink);border:0;border-radius:999px;
+padding:9px 18px;cursor:pointer;font-size:14px}
+.bar button:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
 .bar output{font-family:var(--mono);font-size:13px;max-width:60ch;overflow-wrap:anywhere}
-.empty{font-family:var(--didone);font-size:26px}
 </style></head>
 <body data-run="[&quot;2026-10-26&quot;, &quot;postnatal running&quot;, 8]"><div class="wrap">
-<header class="mast">
-<div class="top"><span class="tag">THE ROCHEVERSE TIMES</span><span class="tag">2026-10-26</span><span class="tag">Rocha Coded</span></div>
+<header class="band">
+<div class="top lab"><span>THE ROCHEVERSE TIMES</span><span class="date">2026-10-26</span><span>Rocha Coded</span></div>
 <h1>Hotline</h1>
-<div class="grid"><div class="cover">
-<p class="scrawl">Call the girls!</p>
+</header>
+<section class="cover-grid"><div class="cover">
+<p class="script">Call the girls!</p>
 <p class="line"><em>8 shows</em> where postnatal running is the conversation</p>
 <p class="line">2 ready to <em>ring today</em>, ranked by fit</p>
 <p class="line">Tick the ones you want. <em>You press send.</em></p>
-</div><div class="side"><svg class="phone" viewBox="0 0 400 330" role="img" aria-label="A pink rotary phone">
-<path d="M60 300 L95 150 Q100 132 120 132 L280 132 Q300 132 305 150 L340 300 Z" fill="#FF2D8A" stroke="#111111" stroke-width="5"/>
+</div><div class="side"><svg class="phone" viewBox="0 0 400 330" role="img" aria-label="A rotary phone">
+<path d="M60 300 L95 150 Q100 132 120 132 L280 132 Q300 132 305 150 L340 300 Z" fill="#50163C" stroke="#3B1230" stroke-width="3"/>
+<path d="M78 296 L108 160" stroke="#E9B949" stroke-width="1.5"/><path d="M322 296 L292 160" stroke="#E9B949" stroke-width="1.5"/>
 <path d="M40 112 Q40 70 90 62 L310 62 Q360 70 360 112 L360 124 Q360 140 340 140 L300 140 Q284 140 282 124 L278 104
-L122 104 L118 124 Q116 140 100 140 L60 140 Q40 140 40 124 Z" fill="#FFB3D1" stroke="#111111" stroke-width="5"/>
-<circle cx="200" cy="222" r="70" fill="#F6EFE4" stroke="#111111" stroke-width="5"/>
-<g fill="#FF2D8A" stroke="#111111" stroke-width="3">
-<circle cx="200" cy="170" r="11"/><circle cx="236" cy="182" r="11"/><circle cx="252" cy="214" r="11"/>
-<circle cx="244" cy="250" r="11"/><circle cx="216" cy="271" r="11"/><circle cx="182" cy="272" r="11"/>
-<circle cx="154" cy="252" r="11"/><circle cx="146" cy="216" r="11"/><circle cx="162" cy="183" r="11"/></g>
-<circle cx="200" cy="222" r="24" fill="#FFE1EC" stroke="#111111" stroke-width="4"/>
-<path d="M262 262 L282 282" stroke="#D4A64A" stroke-width="7" stroke-linecap="round"/>
-<path d="M330 140 C 390 170, 380 250, 340 300" fill="none" stroke="#111111" stroke-width="4" stroke-dasharray="2 9" stroke-linecap="round"/>
-</svg><div class="invite"><svg viewBox="0 0 44 60" aria-hidden="true"><path d="M4 8 Q22 30 40 8 Z" fill="#FFB3D1" stroke="#111111" stroke-width="2.5"/>
-<path d="M22 22 L22 50 M12 54 L32 54" stroke="#111111" stroke-width="2.5" stroke-linecap="round"/>
-<circle cx="31" cy="5" r="2.5" fill="#D4A64A"/><circle cx="36" cy="12" r="1.8" fill="#D4A64A"/></svg><p class="t1">YOU ARE INVITED TO THE ROCHEVERSE</p><p class="t2">come build your founder world</p><p class="t3">dress code: lore</p></div></div></div>
-</header>
-<div class="how tag"><span>Fit 35%</span><span>Fresh 20%</span><span>Guests 20%</span><span>Size 15%</span><span>Rhythm 10%</span></div>
+L122 104 L118 124 Q116 140 100 140 L60 140 Q40 140 40 124 Z" fill="#FFF7F4" stroke="#3B1230" stroke-width="3"/>
+<path d="M70 80 Q90 72 120 72" fill="none" stroke="#E9B949" stroke-width="1.5"/>
+<circle cx="200" cy="222" r="70" fill="#FFF7F4" stroke="#E9B949" stroke-width="2"/>
+<circle cx="200" cy="222" r="62" fill="none" stroke="#3B1230" stroke-width="1" opacity=".35"/>
+<g fill="#50163C" stroke="#E9B949" stroke-width="1.5"><circle cx="200" cy="170" r="10.5"/><circle cx="236" cy="182" r="10.5"/><circle cx="252" cy="214" r="10.5"/><circle cx="244" cy="250" r="10.5"/><circle cx="216" cy="271" r="10.5"/><circle cx="182" cy="272" r="10.5"/><circle cx="154" cy="252" r="10.5"/><circle cx="146" cy="216" r="10.5"/><circle cx="162" cy="183" r="10.5"/></g>
+<circle cx="200" cy="222" r="24" fill="#50163C" stroke="#E9B949" stroke-width="1.5"/>
+<circle cx="200" cy="222" r="5" fill="#E9B949"/>
+<path d="M262 262 L282 282" stroke="#E9B949" stroke-width="5" stroke-linecap="round"/>
+<path d="M330 140 C 390 170, 380 250, 340 300" fill="none" stroke="#E9B949" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/>
+</svg><div class="invite"><svg viewBox="0 0 44 60" aria-hidden="true"><path d="M4 8 Q22 30 40 8 Z" fill="none" stroke="#682047" stroke-width="2"/><path d="M8 11 Q22 25 36 11" fill="#E9B949" opacity=".45"/><path d="M22 22 L22 50 M12 54 L32 54" stroke="#682047" stroke-width="2" stroke-linecap="round"/><circle cx="31" cy="4" r="2" fill="#E9B949"/><circle cx="36" cy="11" r="1.4" fill="#E9B949"/></svg><p class="t1">YOU ARE INVITED TO THE ROCHEVERSE</p><p class="t2">come build your founder world</p><p class="t3">dress code: lore</p></div></div></section>
+<div class="how"><span>fit <b>35%</b></span><span>fresh <b>20%</b></span><span>guests <b>20%</b></span><span>size <b>15%</b></span><span>rhythm <b>10%</b></span></div>
 <main class="cards"><article class="card">
-<span class="rank">No.01</span><span class="tab">100/100</span>
+<span class="rank">no.01</span><span class="tab">100/100</span>
 <div class="head"><div class="dial" style="--s:100"><b>100</b></div>
 <div><h2 class="title">Run Home Mama</h2><div class="by">Fictional Host One</div></div></div>
-<span class="band b-hi">Ring today</span>
+<span class="pill p-hi">Ring today</span>
 <ul class="why"><li>On your love list.</li><li>They talk about new mums, return running, baby, leaking, postnatal, which is who you help.</li><li>Fresh episode on 2026-10-22.</li><li>Guest show: about 80% of recent titles are interviews.</li><li>Publishes weekly, 128 episodes so far.</li></ul>
 <div class="bars" aria-label="Score parts"><div>Fit<br><b>100</b><i style="--v:100"></i></div><div>Fresh<br><b>100</b><i style="--v:100"></i></div><div>Guests<br><b>100</b><i style="--v:100"></i></div><div>Size<br><b>100</b><i style="--v:100"></i></div><div>Rhythm<br><b>100</b><i style="--v:100"></i></div></div>
 <div class="links"><a href="https://runhomemama.example.com/be-a-guest" target="_blank" rel="noopener noreferrer">Be a guest page</a><a href="https://runhomemama.example.com/" target="_blank" rel="noopener noreferrer">Show website</a><a href="https://podcasts.example.com/run-home-mama" target="_blank" rel="noopener noreferrer">Listen</a></div>
 <label class="pick"><input type="checkbox" data-slug="run-home-mama" data-title="Run Home Mama"> Pitch this one</label>
 </article><article class="card">
-<span class="rank">No.02</span><span class="tab">98/100</span>
+<span class="rank">no.02</span><span class="tab">98/100</span>
 <div class="head"><div class="dial" style="--s:98"><b>98</b></div>
 <div><h2 class="title">The Strong After Baby Show</h2><div class="by">Fictional Host Two</div></div></div>
-<span class="band b-hi">Ring today</span>
+<span class="pill p-hi">Ring today</span>
 <ul class="why"><li>On your love list.</li><li>They talk about strength coach, baby, mums, runners, which is who you help.</li><li>Fresh episode on 2026-10-14.</li><li>Guest show: about 60% of recent titles are interviews.</li><li>Publishes fortnightly, 64 episodes so far.</li></ul>
 <div class="bars" aria-label="Score parts"><div>Fit<br><b>80</b><i style="--v:80"></i></div><div>Fresh<br><b>85</b><i style="--v:85"></i></div><div>Guests<br><b>100</b><i style="--v:100"></i></div><div>Size<br><b>100</b><i style="--v:100"></i></div><div>Rhythm<br><b>80</b><i style="--v:80"></i></div></div>
 <div class="links"><a href="https://strongafterbaby.example.com/" target="_blank" rel="noopener noreferrer">Show website</a><a href="https://podcasts.example.com/strong-after-baby" target="_blank" rel="noopener noreferrer">Listen</a></div>
 <label class="pick"><input type="checkbox" data-slug="the-strong-after-baby-show" data-title="The Strong After Baby Show"> Pitch this one</label>
 </article><article class="card">
-<span class="rank">No.03</span><span class="tab">68/100</span>
+<span class="rank">no.03</span><span class="tab">68/100</span>
 <div class="head"><div class="dial" style="--s:68"><b>68</b></div>
 <div><h2 class="title">Pelvic Floor Truths</h2><div class="by">Fictional Host Three</div></div></div>
-<span class="band b-mid">Worth a ring</span>
+<span class="pill p-mid">Worth a ring</span>
 <ul class="why"><li>They talk about return running, coach, postnatal, runners, which is who you help.</li><li>Fresh episode on 2026-09-29.</li><li>Some guests: about 40% of recent titles are interviews.</li><li>Publishes monthly, 38 episodes so far.</li></ul>
 <div class="bars" aria-label="Score parts"><div>Fit<br><b>68</b><i style="--v:68"></i></div><div>Fresh<br><b>70</b><i style="--v:70"></i></div><div>Guests<br><b>67</b><i style="--v:67"></i></div><div>Size<br><b>70</b><i style="--v:70"></i></div><div>Rhythm<br><b>60</b><i style="--v:60"></i></div></div>
 <div class="links"><a href="https://pelvicfloortruths.example.com/pitch-the-show" target="_blank" rel="noopener noreferrer">Be a guest page</a><a href="https://pelvicfloortruths.example.com/" target="_blank" rel="noopener noreferrer">Show website</a></div>
 <label class="pick"><input type="checkbox" data-slug="pelvic-floor-truths" data-title="Pelvic Floor Truths"> Pitch this one</label>
 </article><article class="card">
-<span class="rank">No.04</span><span class="tab">50/100</span>
+<span class="rank">no.04</span><span class="tab">50/100</span>
 <div class="head"><div class="dial" style="--s:50"><b>50</b></div>
 <div><h2 class="title">Mum Miles</h2><div class="by">Fictional Host Four</div></div></div>
-<span class="band b-lo">Maybe later</span>
+<span class="pill p-lo">Maybe later</span>
 <ul class="why"><li>Light overlap: marathon, mums, plan. Listen to one episode first.</li><li>Fresh episode on 2026-10-24.</li><li>Recent titles look solo, guests may be rare.</li><li>Publishes weekly, 212 episodes so far.</li></ul>
 <div class="bars" aria-label="Score parts"><div>Fit<br><b>48</b><i style="--v:48"></i></div><div>Fresh<br><b>100</b><i style="--v:100"></i></div><div>Guests<br><b>0</b><i style="--v:0"></i></div><div>Size<br><b>85</b><i style="--v:85"></i></div><div>Rhythm<br><b>100</b><i style="--v:100"></i></div></div>
 <div class="links"><a href="https://mummiles.example.com/" target="_blank" rel="noopener noreferrer">Show website</a><a href="https://podcasts.example.com/mum-miles" target="_blank" rel="noopener noreferrer">Listen</a></div>
 <label class="pick"><input type="checkbox" data-slug="mum-miles" data-title="Mum Miles"> Pitch this one</label>
 </article><article class="card">
-<span class="rank">No.05</span><span class="tab">39/100</span>
+<span class="rank">no.05</span><span class="tab">39/100</span>
 <div class="head"><div class="dial" style="--s:39"><b>39</b></div>
 <div><h2 class="title">Tiny Feet Big Feelings</h2><div class="by">Fictional Host Eight</div></div></div>
-<span class="band b-lo">Maybe later</span>
+<span class="pill p-lo">Maybe later</span>
 <ul class="why"><li>Light overlap: mums. Listen to one episode first.</li><li>Fresh episode on 2026-10-10.</li><li>Guest show: about 60% of recent titles are interviews.</li><li>Publishes fortnightly, 15 episodes so far.</li></ul>
 <div class="bars" aria-label="Score parts"><div>Fit<br><b>12</b><i style="--v:12"></i></div><div>Fresh<br><b>70</b><i style="--v:70"></i></div><div>Guests<br><b>100</b><i style="--v:100"></i></div><div>Size<br><b>70</b><i style="--v:70"></i></div><div>Rhythm<br><b>80</b><i style="--v:80"></i></div></div>
 <div class="links"><a href="https://tinyfeet.example.com/" target="_blank" rel="noopener noreferrer">Show website</a><a href="https://podcasts.example.com/tiny-feet" target="_blank" rel="noopener noreferrer">Listen</a></div>
 <label class="pick"><input type="checkbox" data-slug="tiny-feet-big-feelings" data-title="Tiny Feet Big Feelings"> Pitch this one</label>
 </article><article class="card">
-<span class="rank">No.06</span><span class="tab">38/100</span>
+<span class="rank">no.06</span><span class="tab">38/100</span>
 <div class="head"><div class="dial" style="--s:38"><b>38</b></div>
 <div><h2 class="title">Quiet Hours Sleep Club</h2><div class="by">Fictional Host Six</div></div></div>
-<span class="band b-lo">Maybe later</span>
+<span class="pill p-lo">Maybe later</span>
 <ul class="why"><li>Light overlap: new mums. Listen to one episode first.</li><li>Nothing new in 90 days, it may be resting.</li><li>Guest show: about 50% of recent titles are interviews.</li><li>Publishes monthly, 45 episodes so far.</li></ul>
 <div class="bars" aria-label="Score parts"><div>Fit<br><b>32</b><i style="--v:32"></i></div><div>Fresh<br><b>0</b><i style="--v:0"></i></div><div>Guests<br><b>83</b><i style="--v:83"></i></div><div>Size<br><b>70</b><i style="--v:70"></i></div><div>Rhythm<br><b>60</b><i style="--v:60"></i></div></div>
 <div class="links"><a href="https://quiethours.example.com/" target="_blank" rel="noopener noreferrer">Show website</a></div>
 <label class="pick"><input type="checkbox" data-slug="quiet-hours-sleep-club" data-title="Quiet Hours Sleep Club"> Pitch this one</label>
 </article><article class="card">
-<span class="rank">No.07</span><span class="tab">34/100</span>
+<span class="rank">no.07</span><span class="tab">34/100</span>
 <div class="head"><div class="dial" style="--s:34"><b>34</b></div>
 <div><h2 class="title">Diet Reset Daily</h2><div class="by">Fictional Host Seven</div></div></div>
-<span class="band b-lo">Maybe later</span>
+<span class="pill p-lo">Maybe later</span>
 <ul class="why"><li>Light overlap: new mums, baby. Listen to one episode first.</li><li>Fresh episode on 2026-10-25.</li><li>Guest show: about 70% of recent titles are interviews.</li><li>Publishes daily, 410 episodes so far.</li><li>Touches weight loss before-and-after, crash diets, which you said no to.</li></ul>
 <div class="bars" aria-label="Score parts"><div>Fit<br><b>44</b><i style="--v:44"></i></div><div>Fresh<br><b>100</b><i style="--v:100"></i></div><div>Guests<br><b>100</b><i style="--v:100"></i></div><div>Size<br><b>85</b><i style="--v:85"></i></div><div>Rhythm<br><b>100</b><i style="--v:100"></i></div></div>
 <div class="links"><a href="https://dietreset.example.com/guest" target="_blank" rel="noopener noreferrer">Be a guest page</a><a href="https://dietreset.example.com/" target="_blank" rel="noopener noreferrer">Show website</a></div>
 <label class="pick"><input type="checkbox" data-slug="diet-reset-daily" data-title="Diet Reset Daily"> Pitch this one</label>
 </article><article class="card">
-<span class="rank">No.08</span><span class="tab">34/100</span>
+<span class="rank">no.08</span><span class="tab">34/100</span>
 <div class="head"><div class="dial" style="--s:34"><b>34</b></div>
 <div><h2 class="title">Founders Who Lift</h2><div class="by">Fictional Host Five</div></div></div>
-<span class="band b-lo">Maybe later</span>
+<span class="pill p-lo">Maybe later</span>
 <ul class="why"><li>No clear overlap with who you help. Check it before you pitch.</li><li>Fresh episode on 2026-09-30.</li><li>Guest show: about 80% of recent titles are interviews.</li><li>Publishes fortnightly, 80 episodes so far.</li></ul>
 <div class="bars" aria-label="Score parts"><div>Fit<br><b>0</b><i style="--v:0"></i></div><div>Fresh<br><b>70</b><i style="--v:70"></i></div><div>Guests<br><b>100</b><i style="--v:100"></i></div><div>Size<br><b>100</b><i style="--v:100"></i></div><div>Rhythm<br><b>80</b><i style="--v:80"></i></div></div>
 <div class="links"><a href="https://founderswholift.example.com/" target="_blank" rel="noopener noreferrer">Show website</a><a href="https://podcasts.example.com/founders-who-lift" target="_blank" rel="noopener noreferrer">Listen</a></div>
 <label class="pick"><input type="checkbox" data-slug="founders-who-lift" data-title="Founders Who Lift"> Pitch this one</label>
 </article></main>
 <footer class="foot"><span class="yours">Every send is yours. Nothing goes out on its own.</span>
-<span class="tag">Rocha Coded. Free tools from the Rocheverse.</span></footer>
+<span class="lab">Rocha Coded. Free tools from the Rocheverse.</span></footer>
 </div>
-<div class="bar"><span class="tag">Picks: <b id="picks-n">0</b></span><button id="copy" type="button">Copy picks for Claude</button>
+<div class="bar"><span class="lab">picks <b id="picks-n">0</b></span><button id="copy" type="button">Copy picks for Claude</button>
 <output id="picks-out" aria-live="polite"></output></div>
 
 <script>
