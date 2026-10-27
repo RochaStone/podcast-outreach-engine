@@ -34,7 +34,7 @@ To start, copy `style.example.json` to `style.json` in your folder and fill it i
 | `fonts.script` | One signature script line per page | `Pinyon Script` |
 | `fonts.scrawl` | Hand marker (other tools use it) | `Permanent Marker` |
 | `fonts.mono` | Numbers and dates | `DM Mono` |
-| `motif` | The look other tools draw in. This tool always uses the rotary phone | `guest-check` |
+| `motif` | The look of every page: `analog` (paper you could hold), `cyberpunk` (the girly terminal) or `y2k-blog` (the 2003 blog page). Older names still work and map to the nearest look | `analog` |
 | `lines.masthead` | Top left of the shortlist and call log | `THE ROCHEVERSE TIMES` |
 | `lines.scrawl` | Second line of the invitation card | `build your founder world` |
 | `lines.stamp` | One word: the "dress code" on the invitation card | `LORE` |
@@ -49,4 +49,5 @@ To start, copy `style.example.json` to `style.json` in your folder and fill it i
 - Fonts are Google Fonts names. If a font isn't on Google Fonts, the page falls back to a similar system font.
 - Your words are only ever yours. If you leave a line blank, the page uses plain wording, never Rocha's.
 - Missing colours and fonts fall back to the example, so a half-finished file still looks finished.
+- `--motif` on the scoring and tracker scripts tries a look for one page without editing the file.
 - The scoring script's `--name` option changes who the invitation is for, without editing the file.

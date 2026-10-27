@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Podcast Call Log</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&amp;family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Pinyon+Script&amp;family=Permanent+Marker&amp;family=DM+Mono:ital,wght@0,400;0,500;1,400&amp;display=swap">
+<style>:root{--ground:#50163C;--candy:#FE9DCA;--cream:#FFF7F4;--blush:#FFE3F1;--ink:#3B1230;--magenta:#C2246E;--plum:#50163C;--wine:#682047;--gold:#E9B949;--lilac:#B9B3F5;--display:'Fraunces',Georgia,serif;--label:'Bricolage Grotesque',system-ui,-apple-system,'Segoe UI',sans-serif;--body:'Fraunces',Georgia,serif;--script:'Pinyon Script',cursive;--marker:'Permanent Marker',cursive;--mono:'DM Mono',ui-monospace,Menlo,monospace;--pixel:'Silkscreen','Pixelify Sans',ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.45}
+a{color:var(--wine);text-underline-offset:3px;text-decoration-thickness:1px}
+.px{display:inline-block;vertical-align:middle}
+.empty{font-family:var(--display);font-size:24px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+@media print{.bar{display:none}body{background:#fff!important}}
+
+body{margin:0;background:var(--cream);background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.2 0 0 0 0 0.05 0 0 0 0 0.15 0 0 0 .06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");color:var(--ink);font-family:var(--body);
+font-size:17px;line-height:1.45}
+a{color:var(--wine);text-underline-offset:3px;text-decoration-thickness:1px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px 120px}
+.lab{font-family:var(--label);font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.band{background:var(--ground);color:var(--cream);margin:0 -16px;padding:22px 32px 40px;position:relative}
+.band::after{content:"";position:absolute;left:32px;right:32px;bottom:14px;border-top:1px solid var(--gold)}
+.band .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;opacity:.85}
+.band .top .date{font-family:var(--mono);font-weight:400;letter-spacing:.04em;text-transform:none}
+.band h1{font-family:var(--display);font-weight:900;color:var(--cream);margin:8px 0 0;line-height:.95;
+font-size:clamp(64px,14vw,176px);letter-spacing:-.025em}
+.cover-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;padding:30px 0 26px;
+border-bottom:1px solid var(--gold);margin-bottom:30px}
+.cover{display:flex;flex-direction:column;gap:12px}.cover p{margin:0}
+.script{font-family:var(--script);color:var(--magenta);font-size:clamp(44px,6.5vw,76px);line-height:1;margin:0 0 6px;
+font-weight:400}
+.line{font-family:var(--display);font-size:clamp(20px,2.5vw,28px);font-weight:600;line-height:1.12;max-width:22ch}
+.line em{color:var(--wine);font-style:italic;font-weight:600}
+.side{display:flex;flex-direction:column;align-items:center;gap:20px}
+.phone{width:100%;max-width:330px;filter:drop-shadow(0 14px 18px rgba(59,18,48,.22))}
+.invite{position:relative;background:var(--cream);color:var(--wine);border:1px solid var(--gold);outline:1px solid var(--wine);
+outline-offset:4px;padding:16px 22px 16px 70px;transform:rotate(1.5deg);box-shadow:0 12px 24px rgba(59,18,48,.18);
+max-width:380px;text-align:left;margin:6px}
+.invite svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:40px}
+.invite .t1{font-family:var(--display);font-weight:800;font-size:16px;letter-spacing:.06em;line-height:1.2;margin:0}
+.invite .t2{font-family:var(--display);font-style:italic;font-size:17px;margin:4px 0 0}
+.invite .t3{font-family:var(--mono);font-size:13px;letter-spacing:.06em;margin:6px 0 0}
+.pill{display:inline-block;border-radius:999px;padding:4px 12px;font-family:var(--label);font-weight:800;font-size:11px;
+letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+.foot{margin-top:52px;border-top:1px solid var(--gold);padding-top:14px;display:flex;justify-content:space-between;
+gap:12px;flex-wrap:wrap;align-items:baseline}
+.yours{font-family:var(--display);font-style:italic;color:var(--wine);font-size:20px}
+.empty{font-family:var(--display);font-size:26px}
+@media (max-width:760px){.cover-grid{grid-template-columns:1fr}.phone{max-width:230px}.band{padding:18px 16px 24px}
+.band::after{left:16px;right:16px}}
+
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+.stat{background:var(--cream);border:1px solid var(--gold);border-radius:12px;padding:10px 16px;min-width:110px;
+font-family:var(--label);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+box-shadow:0 8px 18px rgba(59,18,48,.10)}
+.stat b{font-family:var(--mono);font-weight:500;font-size:30px;display:block;letter-spacing:0;color:var(--ground)}
+.slips{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:26px}
+.slip{position:relative;background:var(--blush);border:1.5px solid var(--ink);border-radius:6px;padding:16px 18px 18px;
+box-shadow:0 14px 26px rgba(59,18,48,.16);background-image:repeating-linear-gradient(transparent 0 27px,rgba(59,18,48,.10) 27px 28px)}
+.slip h3{margin:0 0 2px;padding-right:110px;font-family:var(--display);font-weight:800;font-size:22px;line-height:1.1}
+.slip .k{font-family:var(--label);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:10px;color:var(--wine)}
+.slip .v{font-family:var(--mono);font-size:14px}
+.slip .row{display:flex;justify-content:space-between;gap:10px;margin-top:10px;padding-top:8px;border-top:1px solid var(--gold)}
+.ttl{background:var(--ground);color:var(--cream);margin:-16px -18px 12px;padding:7px 18px;border-radius:4px 4px 0 0;
+font-family:var(--label);font-weight:800;letter-spacing:.18em;text-transform:uppercase;font-size:11px}
+.stamp{position:absolute;top:46px;right:12px;transform:rotate(6deg);border:2px solid currentColor;border-radius:6px;
+padding:2px 8px;font-family:var(--label);font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:12px;
+background:var(--cream)}
+.s-pitched,.s-nudged{color:var(--wine)}.s-replied{color:var(--magenta)}.s-booked{color:var(--ground);border-color:var(--gold)}
+.s-aired{color:var(--ink);border-color:var(--gold)}.s-passed{color:var(--ink);opacity:.55}
+.due{margin-top:12px;background:var(--candy)}
+.notes{font-family:var(--display);font-style:italic;color:var(--ink);font-size:16px;margin-top:8px;line-height:1.3}
+</style></head>
+<body data-motif="analog"><div class="wrap">
+<header class="band">
+<div class="top lab"><span>THE ROCHEVERSE TIMES</span><span class="date">2026-10-26</span><span>Rocha Coded</span></div>
+<h1>Call Log</h1>
+</header>
+<section class="cover-grid"><div class="cover">
+<p class="script">Everything works out for me</p>
+<p class="line"><em>2 due</em> a nudge today</p>
+<p class="line">2 still waiting, <em>1 booked</em></p>
+</div><div class="side"><svg class="phone" viewBox="0 0 400 330" role="img" aria-label="A rotary phone">
+<path d="M60 300 L95 150 Q100 132 120 132 L280 132 Q300 132 305 150 L340 300 Z" fill="#50163C" stroke="#3B1230" stroke-width="3"/>
+<path d="M78 296 L108 160" stroke="#E9B949" stroke-width="1.5"/><path d="M322 296 L292 160" stroke="#E9B949" stroke-width="1.5"/>
+<path d="M40 112 Q40 70 90 62 L310 62 Q360 70 360 112 L360 124 Q360 140 340 140 L300 140 Q284 140 282 124 L278 104
+L122 104 L118 124 Q116 140 100 140 L60 140 Q40 140 40 124 Z" fill="#FFF7F4" stroke="#3B1230" stroke-width="3"/>
+<path d="M70 80 Q90 72 120 72" fill="none" stroke="#E9B949" stroke-width="1.5"/>
+<circle cx="200" cy="222" r="70" fill="#FFF7F4" stroke="#E9B949" stroke-width="2"/>
+<circle cx="200" cy="222" r="62" fill="none" stroke="#3B1230" stroke-width="1" opacity=".35"/>
+<g fill="#50163C" stroke="#E9B949" stroke-width="1.5"><circle cx="200" cy="170" r="10.5"/><circle cx="236" cy="182" r="10.5"/><circle cx="252" cy="214" r="10.5"/><circle cx="244" cy="250" r="10.5"/><circle cx="216" cy="271" r="10.5"/><circle cx="182" cy="272" r="10.5"/><circle cx="154" cy="252" r="10.5"/><circle cx="146" cy="216" r="10.5"/><circle cx="162" cy="183" r="10.5"/></g>
+<circle cx="200" cy="222" r="24" fill="#50163C" stroke="#E9B949" stroke-width="1.5"/>
+<circle cx="200" cy="222" r="5" fill="#E9B949"/>
+<path d="M262 262 L282 282" stroke="#E9B949" stroke-width="5" stroke-linecap="round"/>
+<path d="M330 140 C 390 170, 380 250, 340 300" fill="none" stroke="#E9B949" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/>
+</svg></div></section>
+<div class="stats"><div class="stat"><b>1</b>pitched</div><div class="stat"><b>1</b>nudged</div><div class="stat"><b>0</b>replied</div><div class="stat"><b>1</b>booked</div><div class="stat"><b>0</b>aired</div></div>
+<main class="slips"><article class="slip"><div class="ttl">While you were out</div>
+<span class="stamp s-booked">booked</span>
+<h3>Run Home Mama</h3><a href="https://runhomemama.example.com/be-a-guest" target="_blank" rel="noopener noreferrer">Their page</a>
+<div class="row"><div><div class="k">Pitched</div><div class="v">2026-10-02</div></div>
+<div><div class="k">Nudges</div><div class="v">0 of 2</div></div>
+<div><div class="k">Next nudge</div><div class="v">-</div></div></div>
+<div class="notes">Recording 12 Nov, 10am</div></article><article class="slip"><div class="ttl">While you were out</div>
+<span class="stamp s-nudged">nudged</span>
+<h3>The Strong After Baby Show</h3><a href="https://strongafterbaby.example.com/" target="_blank" rel="noopener noreferrer">Their page</a>
+<div class="row"><div><div class="k">Pitched</div><div class="v">2026-10-05</div></div>
+<div><div class="k">Nudges</div><div class="v">1 of 2</div></div>
+<div><div class="k">Next nudge</div><div class="v">2026-10-22</div></div></div>
+<span class="pill due">Nudge due!</span></article><article class="slip"><div class="ttl">While you were out</div>
+<span class="stamp s-pitched">pitched</span>
+<h3>Pelvic Floor Truths</h3><a href="https://pelvicfloortruths.example.com/pitch-the-show" target="_blank" rel="noopener noreferrer">Their page</a>
+<div class="row"><div><div class="k">Pitched</div><div class="v">2026-10-19</div></div>
+<div><div class="k">Nudges</div><div class="v">0 of 2</div></div>
+<div><div class="k">Next nudge</div><div class="v">2026-10-26</div></div></div>
+<span class="pill due">Nudge due!</span></article><article class="slip"><div class="ttl">While you were out</div>
+<span class="stamp s-passed">passed</span>
+<h3>Mum Miles</h3><a href="https://mummiles.example.com/" target="_blank" rel="noopener noreferrer">Their page</a>
+<div class="row"><div><div class="k">Pitched</div><div class="v">2026-10-20</div></div>
+<div><div class="k">Nudges</div><div class="v">0 of 2</div></div>
+<div><div class="k">Next nudge</div><div class="v">-</div></div></div>
+<div class="notes">Not taking guests this season</div></article></main>
+<footer class="foot"><span class="yours">Every send is yours. Nothing goes out on its own.</span>
+<span class="lab">Rocha Coded. Free tools from the Rocheverse.</span></footer>
+</div></body></html>

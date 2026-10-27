@@ -3,9 +3,16 @@
 <title>Podcast Hotline</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&amp;family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Pinyon+Script&amp;family=Permanent+Marker&amp;family=DM+Mono:ital,wght@0,400;0,500;1,400&amp;display=swap">
-<style>:root{--ground:#50163C;--candy:#FE9DCA;--cream:#FFF7F4;--blush:#FFE3F1;--ink:#3B1230;--magenta:#C2246E;--plum:#50163C;--wine:#682047;--gold:#E9B949;--lilac:#B9B3F5;--display:'Fraunces',Georgia,serif;--label:'Bricolage Grotesque',system-ui,-apple-system,'Segoe UI',sans-serif;--body:'Fraunces',Georgia,serif;--script:'Pinyon Script',cursive;--marker:'Permanent Marker',cursive;--mono:'DM Mono',ui-monospace,Menlo,monospace}
+<style>:root{--ground:#50163C;--candy:#FE9DCA;--cream:#FFF7F4;--blush:#FFE3F1;--ink:#3B1230;--magenta:#C2246E;--plum:#50163C;--wine:#682047;--gold:#E9B949;--lilac:#B9B3F5;--display:'Fraunces',Georgia,serif;--label:'Bricolage Grotesque',system-ui,-apple-system,'Segoe UI',sans-serif;--body:'Fraunces',Georgia,serif;--script:'Pinyon Script',cursive;--marker:'Permanent Marker',cursive;--mono:'DM Mono',ui-monospace,Menlo,monospace;--pixel:'Silkscreen','Pixelify Sans',ui-monospace,Menlo,monospace}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.45}
+a{color:var(--wine);text-underline-offset:3px;text-decoration-thickness:1px}
+.px{display:inline-block;vertical-align:middle}
+.empty{font-family:var(--display);font-size:24px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+@media print{.bar{display:none}body{background:#fff!important}}
+
 body{margin:0;background:var(--cream);background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.2 0 0 0 0 0.05 0 0 0 0 0.15 0 0 0 .06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");color:var(--ink);font-family:var(--body);
 font-size:17px;line-height:1.45}
 a{color:var(--wine);text-underline-offset:3px;text-decoration-thickness:1px}
@@ -90,7 +97,7 @@ padding:9px 18px;cursor:pointer;font-size:14px}
 .bar button:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
 .bar output{font-family:var(--mono);font-size:13px;max-width:60ch;overflow-wrap:anywhere}
 </style></head>
-<body data-run="[&quot;2026-10-26&quot;, &quot;postnatal running&quot;, 8]"><div class="wrap">
+<body data-run="[&quot;2026-10-26&quot;, &quot;postnatal running&quot;, 8]" data-motif="analog"><div class="wrap">
 <header class="band">
 <div class="top lab"><span>THE ROCHEVERSE TIMES</span><span class="date">2026-10-26</span><span>Rocha Coded</span></div>
 <h1>Hotline</h1>
@@ -121,7 +128,7 @@ L122 104 L118 124 Q116 140 100 140 L60 140 Q40 140 40 124 Z" fill="#FFF7F4" stro
 <div><h2 class="title">Run Home Mama</h2><div class="by">Fictional Host One</div></div></div>
 <span class="pill p-hi">Ring today</span>
 <ul class="why"><li>On your love list.</li><li>They talk about new mums, return running, baby, leaking, postnatal, which is who you help.</li><li>Fresh episode on 2026-10-22.</li><li>Guest show: about 80% of recent titles are interviews.</li><li>Publishes weekly, 128 episodes so far.</li></ul>
-<div class="bars" aria-label="Score parts"><div>Fit<br><b>100</b><i style="--v:100"></i></div><div>Fresh<br><b>100</b><i style="--v:100"></i></div><div>Guests<br><b>100</b><i style="--v:100"></i></div><div>Size<br><b>100</b><i style="--v:100"></i></div><div>Rhythm<br><b>100</b><i style="--v:100"></i></div></div>
+<div class="bars" aria-label="Score parts"><div>Fit<b>100</b><i style="--v:100"></i></div><div>Fresh<b>100</b><i style="--v:100"></i></div><div>Guests<b>100</b><i style="--v:100"></i></div><div>Size<b>100</b><i style="--v:100"></i></div><div>Rhythm<b>100</b><i style="--v:100"></i></div></div>
 <div class="links"><a href="https://runhomemama.example.com/be-a-guest" target="_blank" rel="noopener noreferrer">Be a guest page</a><a href="https://runhomemama.example.com/" target="_blank" rel="noopener noreferrer">Show website</a><a href="https://podcasts.example.com/run-home-mama" target="_blank" rel="noopener noreferrer">Listen</a></div>
 <label class="pick"><input type="checkbox" data-slug="run-home-mama" data-title="Run Home Mama"> Pitch this one</label>
 </article><article class="card">
@@ -129,8 +136,8 @@ L122 104 L118 124 Q116 140 100 140 L60 140 Q40 140 40 124 Z" fill="#FFF7F4" stro
 <div class="head"><div class="dial" style="--s:98"><b>98</b></div>
 <div><h2 class="title">The Strong After Baby Show</h2><div class="by">Fictional Host Two</div></div></div>
 <span class="pill p-hi">Ring today</span>
-<ul class="why"><li>On your love list.</li><li>They talk about strength coach, baby, mums, runners, which is who you help.</li><li>Fresh episode on 2026-10-14.</li><li>Guest show: about 60% of recent titles are interviews.</li><li>Publishes fortnightly, 64 episodes so far.</li></ul>
-<div class="bars" aria-label="Score parts"><div>Fit<br><b>80</b><i style="--v:80"></i></div><div>Fresh<br><b>85</b><i style="--v:85"></i></div><div>Guests<br><b>100</b><i style="--v:100"></i></div><div>Size<br><b>100</b><i style="--v:100"></i></div><div>Rhythm<br><b>80</b><i style="--v:80"></i></div></div>
+<ul class="why"><li>On your love list.</li><li>They talk about strength coach, baby, mums, running, which is who you help.</li><li>Fresh episode on 2026-10-14.</li><li>Guest show: about 60% of recent titles are interviews.</li><li>Publishes fortnightly, 64 episodes so far.</li></ul>
+<div class="bars" aria-label="Score parts"><div>Fit<b>80</b><i style="--v:80"></i></div><div>Fresh<b>85</b><i style="--v:85"></i></div><div>Guests<b>100</b><i style="--v:100"></i></div><div>Size<b>100</b><i style="--v:100"></i></div><div>Rhythm<b>80</b><i style="--v:80"></i></div></div>
 <div class="links"><a href="https://strongafterbaby.example.com/" target="_blank" rel="noopener noreferrer">Show website</a><a href="https://podcasts.example.com/strong-after-baby" target="_blank" rel="noopener noreferrer">Listen</a></div>
 <label class="pick"><input type="checkbox" data-slug="the-strong-after-baby-show" data-title="The Strong After Baby Show"> Pitch this one</label>
 </article><article class="card">
@@ -138,8 +145,8 @@ L122 104 L118 124 Q116 140 100 140 L60 140 Q40 140 40 124 Z" fill="#FFF7F4" stro
 <div class="head"><div class="dial" style="--s:68"><b>68</b></div>
 <div><h2 class="title">Pelvic Floor Truths</h2><div class="by">Fictional Host Three</div></div></div>
 <span class="pill p-mid">Worth a ring</span>
-<ul class="why"><li>They talk about return running, coach, postnatal, runners, which is who you help.</li><li>Fresh episode on 2026-09-29.</li><li>Some guests: about 40% of recent titles are interviews.</li><li>Publishes monthly, 38 episodes so far.</li></ul>
-<div class="bars" aria-label="Score parts"><div>Fit<br><b>68</b><i style="--v:68"></i></div><div>Fresh<br><b>70</b><i style="--v:70"></i></div><div>Guests<br><b>67</b><i style="--v:67"></i></div><div>Size<br><b>70</b><i style="--v:70"></i></div><div>Rhythm<br><b>60</b><i style="--v:60"></i></div></div>
+<ul class="why"><li>They talk about return running, coach, postnatal, which is who you help.</li><li>Fresh episode on 2026-09-29.</li><li>Some guests: about 40% of recent titles are interviews.</li><li>Publishes monthly, 38 episodes so far.</li></ul>
+<div class="bars" aria-label="Score parts"><div>Fit<b>68</b><i style="--v:68"></i></div><div>Fresh<b>70</b><i style="--v:70"></i></div><div>Guests<b>67</b><i style="--v:67"></i></div><div>Size<b>70</b><i style="--v:70"></i></div><div>Rhythm<b>60</b><i style="--v:60"></i></div></div>
 <div class="links"><a href="https://pelvicfloortruths.example.com/pitch-the-show" target="_blank" rel="noopener noreferrer">Be a guest page</a><a href="https://pelvicfloortruths.example.com/" target="_blank" rel="noopener noreferrer">Show website</a></div>
 <label class="pick"><input type="checkbox" data-slug="pelvic-floor-truths" data-title="Pelvic Floor Truths"> Pitch this one</label>
 </article><article class="card">
@@ -148,7 +155,7 @@ L122 104 L118 124 Q116 140 100 140 L60 140 Q40 140 40 124 Z" fill="#FFF7F4" stro
 <div><h2 class="title">Mum Miles</h2><div class="by">Fictional Host Four</div></div></div>
 <span class="pill p-lo">Maybe later</span>
 <ul class="why"><li>Light overlap: marathon, mums, plan. Listen to one episode first.</li><li>Fresh episode on 2026-10-24.</li><li>Recent titles look solo, guests may be rare.</li><li>Publishes weekly, 212 episodes so far.</li></ul>
-<div class="bars" aria-label="Score parts"><div>Fit<br><b>48</b><i style="--v:48"></i></div><div>Fresh<br><b>100</b><i style="--v:100"></i></div><div>Guests<br><b>0</b><i style="--v:0"></i></div><div>Size<br><b>85</b><i style="--v:85"></i></div><div>Rhythm<br><b>100</b><i style="--v:100"></i></div></div>
+<div class="bars" aria-label="Score parts"><div>Fit<b>48</b><i style="--v:48"></i></div><div>Fresh<b>100</b><i style="--v:100"></i></div><div>Guests<b>0</b><i style="--v:0"></i></div><div>Size<b>85</b><i style="--v:85"></i></div><div>Rhythm<b>100</b><i style="--v:100"></i></div></div>
 <div class="links"><a href="https://mummiles.example.com/" target="_blank" rel="noopener noreferrer">Show website</a><a href="https://podcasts.example.com/mum-miles" target="_blank" rel="noopener noreferrer">Listen</a></div>
 <label class="pick"><input type="checkbox" data-slug="mum-miles" data-title="Mum Miles"> Pitch this one</label>
 </article><article class="card">
@@ -157,7 +164,7 @@ L122 104 L118 124 Q116 140 100 140 L60 140 Q40 140 40 124 Z" fill="#FFF7F4" stro
 <div><h2 class="title">Tiny Feet Big Feelings</h2><div class="by">Fictional Host Eight</div></div></div>
 <span class="pill p-lo">Maybe later</span>
 <ul class="why"><li>Light overlap: mums. Listen to one episode first.</li><li>Fresh episode on 2026-10-10.</li><li>Guest show: about 60% of recent titles are interviews.</li><li>Publishes fortnightly, 15 episodes so far.</li></ul>
-<div class="bars" aria-label="Score parts"><div>Fit<br><b>12</b><i style="--v:12"></i></div><div>Fresh<br><b>70</b><i style="--v:70"></i></div><div>Guests<br><b>100</b><i style="--v:100"></i></div><div>Size<br><b>70</b><i style="--v:70"></i></div><div>Rhythm<br><b>80</b><i style="--v:80"></i></div></div>
+<div class="bars" aria-label="Score parts"><div>Fit<b>12</b><i style="--v:12"></i></div><div>Fresh<b>70</b><i style="--v:70"></i></div><div>Guests<b>100</b><i style="--v:100"></i></div><div>Size<b>70</b><i style="--v:70"></i></div><div>Rhythm<b>80</b><i style="--v:80"></i></div></div>
 <div class="links"><a href="https://tinyfeet.example.com/" target="_blank" rel="noopener noreferrer">Show website</a><a href="https://podcasts.example.com/tiny-feet" target="_blank" rel="noopener noreferrer">Listen</a></div>
 <label class="pick"><input type="checkbox" data-slug="tiny-feet-big-feelings" data-title="Tiny Feet Big Feelings"> Pitch this one</label>
 </article><article class="card">
@@ -166,7 +173,7 @@ L122 104 L118 124 Q116 140 100 140 L60 140 Q40 140 40 124 Z" fill="#FFF7F4" stro
 <div><h2 class="title">Quiet Hours Sleep Club</h2><div class="by">Fictional Host Six</div></div></div>
 <span class="pill p-lo">Maybe later</span>
 <ul class="why"><li>Light overlap: new mums. Listen to one episode first.</li><li>Nothing new in 90 days, it may be resting.</li><li>Guest show: about 50% of recent titles are interviews.</li><li>Publishes monthly, 45 episodes so far.</li></ul>
-<div class="bars" aria-label="Score parts"><div>Fit<br><b>32</b><i style="--v:32"></i></div><div>Fresh<br><b>0</b><i style="--v:0"></i></div><div>Guests<br><b>83</b><i style="--v:83"></i></div><div>Size<br><b>70</b><i style="--v:70"></i></div><div>Rhythm<br><b>60</b><i style="--v:60"></i></div></div>
+<div class="bars" aria-label="Score parts"><div>Fit<b>32</b><i style="--v:32"></i></div><div>Fresh<b>0</b><i style="--v:0"></i></div><div>Guests<b>83</b><i style="--v:83"></i></div><div>Size<b>70</b><i style="--v:70"></i></div><div>Rhythm<b>60</b><i style="--v:60"></i></div></div>
 <div class="links"><a href="https://quiethours.example.com/" target="_blank" rel="noopener noreferrer">Show website</a></div>
 <label class="pick"><input type="checkbox" data-slug="quiet-hours-sleep-club" data-title="Quiet Hours Sleep Club"> Pitch this one</label>
 </article><article class="card">
@@ -175,7 +182,7 @@ L122 104 L118 124 Q116 140 100 140 L60 140 Q40 140 40 124 Z" fill="#FFF7F4" stro
 <div><h2 class="title">Diet Reset Daily</h2><div class="by">Fictional Host Seven</div></div></div>
 <span class="pill p-lo">Maybe later</span>
 <ul class="why"><li>Light overlap: new mums, baby. Listen to one episode first.</li><li>Fresh episode on 2026-10-25.</li><li>Guest show: about 70% of recent titles are interviews.</li><li>Publishes daily, 410 episodes so far.</li><li>Touches weight loss before-and-after, crash diets, which you said no to.</li></ul>
-<div class="bars" aria-label="Score parts"><div>Fit<br><b>44</b><i style="--v:44"></i></div><div>Fresh<br><b>100</b><i style="--v:100"></i></div><div>Guests<br><b>100</b><i style="--v:100"></i></div><div>Size<br><b>85</b><i style="--v:85"></i></div><div>Rhythm<br><b>100</b><i style="--v:100"></i></div></div>
+<div class="bars" aria-label="Score parts"><div>Fit<b>44</b><i style="--v:44"></i></div><div>Fresh<b>100</b><i style="--v:100"></i></div><div>Guests<b>100</b><i style="--v:100"></i></div><div>Size<b>85</b><i style="--v:85"></i></div><div>Rhythm<b>100</b><i style="--v:100"></i></div></div>
 <div class="links"><a href="https://dietreset.example.com/guest" target="_blank" rel="noopener noreferrer">Be a guest page</a><a href="https://dietreset.example.com/" target="_blank" rel="noopener noreferrer">Show website</a></div>
 <label class="pick"><input type="checkbox" data-slug="diet-reset-daily" data-title="Diet Reset Daily"> Pitch this one</label>
 </article><article class="card">
@@ -184,7 +191,7 @@ L122 104 L118 124 Q116 140 100 140 L60 140 Q40 140 40 124 Z" fill="#FFF7F4" stro
 <div><h2 class="title">Founders Who Lift</h2><div class="by">Fictional Host Five</div></div></div>
 <span class="pill p-lo">Maybe later</span>
 <ul class="why"><li>No clear overlap with who you help. Check it before you pitch.</li><li>Fresh episode on 2026-09-30.</li><li>Guest show: about 80% of recent titles are interviews.</li><li>Publishes fortnightly, 80 episodes so far.</li></ul>
-<div class="bars" aria-label="Score parts"><div>Fit<br><b>0</b><i style="--v:0"></i></div><div>Fresh<br><b>70</b><i style="--v:70"></i></div><div>Guests<br><b>100</b><i style="--v:100"></i></div><div>Size<br><b>100</b><i style="--v:100"></i></div><div>Rhythm<br><b>80</b><i style="--v:80"></i></div></div>
+<div class="bars" aria-label="Score parts"><div>Fit<b>0</b><i style="--v:0"></i></div><div>Fresh<b>70</b><i style="--v:70"></i></div><div>Guests<b>100</b><i style="--v:100"></i></div><div>Size<b>100</b><i style="--v:100"></i></div><div>Rhythm<b>80</b><i style="--v:80"></i></div></div>
 <div class="links"><a href="https://founderswholift.example.com/" target="_blank" rel="noopener noreferrer">Show website</a><a href="https://podcasts.example.com/founders-who-lift" target="_blank" rel="noopener noreferrer">Listen</a></div>
 <label class="pick"><input type="checkbox" data-slug="founders-who-lift" data-title="Founders Who Lift"> Pitch this one</label>
 </article></main>
@@ -228,5 +235,4 @@ L122 104 L118 124 Q116 140 100 140 L60 140 Q40 140 40 124 Z" fill="#FFF7F4" stro
   text();
 })();
 </script>
-
 </body></html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Podcast Call Log</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&amp;family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Pinyon+Script&amp;family=Permanent+Marker&amp;family=DM+Mono:ital,wght@0,400;0,500;1,400&amp;family=Silkscreen:wght@400;700&amp;family=Pixelify+Sans:wght@400..700&amp;display=swap">
+<style>:root{--ground:#50163C;--candy:#FE9DCA;--cream:#FFF7F4;--blush:#FFE3F1;--ink:#3B1230;--magenta:#C2246E;--plum:#50163C;--wine:#682047;--gold:#E9B949;--lilac:#B9B3F5;--display:'Fraunces',Georgia,serif;--label:'Bricolage Grotesque',system-ui,-apple-system,'Segoe UI',sans-serif;--body:'Fraunces',Georgia,serif;--script:'Pinyon Script',cursive;--marker:'Permanent Marker',cursive;--mono:'DM Mono',ui-monospace,Menlo,monospace;--pixel:'Silkscreen','Pixelify Sans',ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.45}
+a{color:var(--wine);text-underline-offset:3px;text-decoration-thickness:1px}
+.px{display:inline-block;vertical-align:middle}
+.empty{font-family:var(--display);font-size:24px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+@media print{.bar{display:none}body{background:#fff!important}}
+
+body{background:var(--ground);color:var(--cream);font-family:var(--label);
+background-image:repeating-linear-gradient(0deg,rgba(255,247,244,.035) 0 1px,transparent 1px 3px)}
+a{color:var(--candy)}
+.deck{max-width:1180px;margin:18px auto 110px;padding:22px;border:10px solid var(--wine);border-radius:22px;position:relative;
+background:var(--ground);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.deck::before,.deck::after,.screws::before,.screws::after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;
+background:var(--gold);box-shadow:inset -2px -2px 0 rgba(59,18,48,.45)}
+.deck::before{top:-8px;left:-8px}.deck::after{top:-8px;right:-8px}.screws::before{bottom:-8px;left:-8px}
+.screws::after{bottom:-8px;right:-8px}
+.px-lab{font-family:var(--pixel);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.status{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;padding-bottom:12px;
+border-bottom:2px dashed rgba(233,185,73,.55)}
+.leds{display:flex;gap:8px;align-items:center}
+.led{width:10px;height:10px;border-radius:2px;background:var(--candy)}.led.g{background:var(--gold)}.led.o{background:transparent;
+border:2px solid var(--cream);opacity:.5}
+.term{font-family:var(--mono);font-size:15px;line-height:1.6;margin:18px 0 22px;overflow-wrap:anywhere}
+.term p{margin:0}.term .pr{color:var(--candy)}.term .out{color:var(--cream);opacity:.85}.term .c{color:var(--gold)}
+.cursor{display:inline-block;width:.6em;height:1.05em;background:var(--candy);vertical-align:-2px;
+animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+h1{font-family:var(--pixel);font-weight:700;font-size:clamp(34px,7vw,64px);margin:6px 0 0;letter-spacing:.02em;line-height:1}
+.panels{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:26px}
+.panel{background:var(--wine);padding:18px 18px 16px;margin:6px;display:flex;flex-direction:column;gap:10px;
+box-shadow:0 -6px 0 0 var(--cream),0 6px 0 0 var(--cream),-6px 0 0 0 var(--cream),6px 0 0 0 var(--cream),
+0 0 0 6px var(--ground),0 12px 0 6px rgba(0,0,0,.25)}
+.panel .hd{display:flex;justify-content:space-between;gap:8px;color:var(--gold)}
+.panel h2{font-family:var(--label);font-weight:800;font-size:20px;line-height:1.15;margin:0;color:var(--cream)}
+.panel .by{font-family:var(--mono);font-size:13px;color:var(--candy)}
+.blocks{display:flex;gap:3px;align-items:center}
+.blocks i{width:16px;height:14px;background:rgba(255,247,244,.14)}.blocks i.on{background:var(--candy)}
+.blocks b{font-family:var(--mono);font-weight:500;margin-left:8px;font-size:15px}
+.keys{display:flex;gap:6px;flex-wrap:wrap}
+.key{min-width:42px;padding:4px 6px 3px;border-radius:12px 12px 16px 16px;text-align:center;line-height:1.05;
+font-family:var(--pixel);color:var(--ink);background:var(--candy);border-bottom:3px solid rgba(59,18,48,.45)}
+.key b{display:block;font-size:15px}.key small{font-size:9px;letter-spacing:.08em}
+.k-mid .key{background:var(--lilac)}.k-lo .key{background:transparent;color:var(--cream);border:1.5px solid var(--cream)}
+.keys .say{font-family:var(--pixel);font-size:11px;align-self:center;margin-left:4px;color:var(--cream)}
+.why{margin:0;padding:0;list-style:none;font-family:var(--mono);font-size:13.5px;line-height:1.5}
+.why li::before{content:"> ";color:var(--gold)}
+.mini{display:grid;grid-template-columns:auto 1fr auto;gap:2px 8px;font-family:var(--pixel);font-size:10px;align-items:center}
+.mini .blocks i{width:8px;height:8px}.mini span:last-child{font-family:var(--mono)}
+.links{display:flex;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:13px}
+.links a::before{content:"open ";color:var(--gold)}
+.pick{display:flex;align-items:center;gap:8px;margin-top:auto;font-family:var(--pixel);font-size:12px;cursor:pointer}
+.pick input{appearance:none;-webkit-appearance:none;width:22px;height:22px;margin:0;border:2px solid var(--cream);
+background:transparent;display:grid;place-items:center;cursor:pointer}
+.pick input:checked{background:var(--candy);border-color:var(--candy)}
+.pick input:checked::after{content:"x";font-family:var(--pixel);color:var(--ink);font-size:14px}
+.pick input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.foot{margin-top:30px;padding-top:12px;border-top:2px dashed rgba(233,185,73,.55);display:flex;justify-content:space-between;
+gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:13px}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--wine);color:var(--cream);padding:10px 16px;display:flex;gap:14px;
+align-items:center;justify-content:center;flex-wrap:wrap;z-index:5;border-top:2px solid var(--gold)}
+.bar b{font-family:var(--mono)}
+.bar button{font-family:var(--pixel);font-size:12px;background:var(--candy);color:var(--ink);border:0;border-radius:4px;
+padding:9px 14px;cursor:pointer}
+.bar button:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
+.bar output{font-family:var(--mono);font-size:13px;max-width:60ch;overflow-wrap:anywhere}
+.counters{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 22px}
+.ctr{border:2px solid var(--gold);padding:8px 12px;min-width:110px}
+.ctr b{display:block;font-family:var(--mono);font-weight:500;font-size:26px;color:var(--candy)}
+.log{font-family:var(--mono);font-size:14px;line-height:1.55;display:flex;flex-direction:column;gap:14px}
+.entry{background:var(--wine);padding:12px 14px;border-left:6px solid var(--gold)}
+.entry.due{border-left-color:var(--candy)}
+.entry .st{font-family:var(--pixel);font-size:12px;color:var(--gold)}.entry.due .flag{color:var(--candy);font-family:var(--pixel);font-size:12px}
+.entry .nm{font-family:var(--label);font-weight:800;font-size:18px;color:var(--cream)}
+.entry .meta{opacity:.85}.entry .note{color:var(--candy)}
+@media (max-width:520px){.deck{padding:14px;border-width:7px;margin:10px 8px 110px}.term{font-size:13px}}
+</style></head>
+<body data-motif="cyberpunk"><div class="deck"><span class="screws"></span>
+<div class="status"><div class="leds"><span class="led"></span><span class="led g"></span><span class="led o"></span><span class="px-lab">call log · Rocha Coded</span></div><span class="px-lab">THE ROCHEVERSE TIMES <svg class="px" viewBox="0 0 7 6" width="14" height="12" aria-hidden="true" shape-rendering="crispEdges" fill="#E9B949"><rect x="1" y="0" width="1" height="1"/><rect x="2" y="0" width="1" height="1"/><rect x="4" y="0" width="1" height="1"/><rect x="5" y="0" width="1" height="1"/><rect x="0" y="1" width="1" height="1"/><rect x="1" y="1" width="1" height="1"/><rect x="2" y="1" width="1" height="1"/><rect x="3" y="1" width="1" height="1"/><rect x="4" y="1" width="1" height="1"/><rect x="5" y="1" width="1" height="1"/><rect x="6" y="1" width="1" height="1"/><rect x="0" y="2" width="1" height="1"/><rect x="1" y="2" width="1" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="4" y="2" width="1" height="1"/><rect x="5" y="2" width="1" height="1"/><rect x="6" y="2" width="1" height="1"/><rect x="1" y="3" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="3" y="3" width="1" height="1"/><rect x="4" y="3" width="1" height="1"/><rect x="5" y="3" width="1" height="1"/><rect x="2" y="4" width="1" height="1"/><rect x="3" y="4" width="1" height="1"/><rect x="4" y="4" width="1" height="1"/><rect x="3" y="5" width="1" height="1"/></svg> 2026-10-26</span></div>
+<h1>CALL LOG</h1>
+<div class="term">
+<p><span class="pr">rocheverse:~$</span> calllog --due</p>
+<p class="out">2 due a nudge today. 2 still waiting. 1 booked.</p>
+<p class="c"># everything works out for me</p>
+<p><span class="pr">rocheverse:~$</span> <span class="cursor"></span></p>
+</div>
+<div class="counters"><div class="ctr px-lab"><b>1</b>pitched</div><div class="ctr px-lab"><b>1</b>nudged</div><div class="ctr px-lab"><b>0</b>replied</div><div class="ctr px-lab"><b>1</b>booked</div><div class="ctr px-lab"><b>0</b>aired</div></div>
+<main class="log"><div class="entry"><span class="st">[BOOKED]</span>
+<div class="nm">Run Home Mama</div>
+<div class="meta">pitched 2026-10-02 · nudges 0/2 · next - <a href="https://runhomemama.example.com/be-a-guest" target="_blank" rel="noopener noreferrer">open</a></div><div class="note">// Recording 12 Nov, 10am</div></div><div class="entry due"><span class="st">[NUDGED]</span> <span class="flag">◆ nudge due</span>
+<div class="nm">The Strong After Baby Show</div>
+<div class="meta">pitched 2026-10-05 · nudges 1/2 · next 2026-10-22 <a href="https://strongafterbaby.example.com/" target="_blank" rel="noopener noreferrer">open</a></div></div><div class="entry due"><span class="st">[PITCHED]</span> <span class="flag">◆ nudge due</span>
+<div class="nm">Pelvic Floor Truths</div>
+<div class="meta">pitched 2026-10-19 · nudges 0/2 · next 2026-10-26 <a href="https://pelvicfloortruths.example.com/pitch-the-show" target="_blank" rel="noopener noreferrer">open</a></div></div><div class="entry"><span class="st">[PASSED]</span>
+<div class="nm">Mum Miles</div>
+<div class="meta">pitched 2026-10-20 · nudges 0/2 · next - <a href="https://mummiles.example.com/" target="_blank" rel="noopener noreferrer">open</a></div><div class="note">// Not taking guests this season</div></div></main>
+<footer class="foot"><span>every send is yours. nothing goes out on its own.</span><span>Rocha Coded. Free tools from the Rocheverse.</span></footer>
+</div></body></html>

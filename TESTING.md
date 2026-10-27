@@ -17,16 +17,22 @@ python3 -m unittest -v
 - **Style** (`tests/test_style.py`): the style.json lookup order, broken files falling through, bad colours and
   font names rejected, Rocha's words never inherited into another style, and a second style changing the shortlist
   masthead text, the hero colour, the fonts and the invitation card, plus the call log.
+- **Looks** (`tests/test_motifs.py`): the shortlist and the call log in analog, cyberpunk and y2k-blog, each with its
+  signature (the rotary phone, the terminal prompt and keypad, the hotline.exe window and hit counter, the guestbook),
+  the same facts in every look, escaping in every look, no glow, the pixel font only where it belongs, motif aliases,
+  and the --motif override.
 - **Discovery** (`tests/test_discover_live.py`): search terms, dedupe across sources, the Podcast Index auth header
   shape, and one live Apple Podcasts query that is skipped automatically when the network is unavailable.
 
 ## Results, 26 Oct 2026 (macOS, Python 3.12.8)
-- `python3 -m unittest`: 45 tests, all passed. The live Apple Podcasts query ran and passed (not skipped).
+- `python3 -m unittest`: 56 tests, all passed. The live Apple Podcasts query ran and passed (not skipped).
 - Live end to end: `discover.py --niche "postnatal running, postpartum fitness" --audience "new mums" --country GB
   --limit 25` found 25 real shows from 4 searches in 72 seconds, read all 25 feeds, stored zero email addresses.
   `score.py` ranked them with the fictional example profile and drew the shortlist page.
 - None of the 25 real feeds linked a "be a guest" page, so cards fell back to the show website. Expect this often.
-- The pages were rendered to PNG with headless Chrome and checked by eye (`docs/img/shortlist.png`).
+- All three looks were rendered with headless Chrome and checked by eye at desktop width and at 390px phone width
+  (inside a 390px frame, since headless Chrome will not open a window that narrow). `scripts/make-readme-images.py`
+  makes the README pictures.
 
 ## Not tested
 - **Podcast Index search** with real keys. The auth header follows their published scheme and the request shape

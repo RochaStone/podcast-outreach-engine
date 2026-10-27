@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Podcast Hotline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&amp;family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Pinyon+Script&amp;family=Permanent+Marker&amp;family=DM+Mono:ital,wght@0,400;0,500;1,400&amp;family=Silkscreen:wght@400;700&amp;family=Pixelify+Sans:wght@400..700&amp;display=swap">
+<style>:root{--ground:#50163C;--candy:#FE9DCA;--cream:#FFF7F4;--blush:#FFE3F1;--ink:#3B1230;--magenta:#C2246E;--plum:#50163C;--wine:#682047;--gold:#E9B949;--lilac:#B9B3F5;--display:'Fraunces',Georgia,serif;--label:'Bricolage Grotesque',system-ui,-apple-system,'Segoe UI',sans-serif;--body:'Fraunces',Georgia,serif;--script:'Pinyon Script',cursive;--marker:'Permanent Marker',cursive;--mono:'DM Mono',ui-monospace,Menlo,monospace;--pixel:'Silkscreen','Pixelify Sans',ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.45}
+a{color:var(--wine);text-underline-offset:3px;text-decoration-thickness:1px}
+.px{display:inline-block;vertical-align:middle}
+.empty{font-family:var(--display);font-size:24px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+@media print{.bar{display:none}body{background:#fff!important}}
+
+body{background:var(--blush);background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' shape-rendering='crispEdges'><rect x='2' y='2' width='2' height='2' fill='%23FFF7F4'/><rect x='16' y='16' width='2' height='2' fill='%23E9B949' opacity='.55'/></svg>");font-family:var(--label);font-weight:400}
+.win{max-width:1180px;margin:22px auto 110px;background:var(--cream);border:1.5px solid var(--ink);
+box-shadow:6px 8px 0 rgba(59,18,48,.22)}
+.tb{display:flex;align-items:center;gap:10px;background:var(--ground);color:var(--cream);padding:6px 10px;
+border-bottom:1.5px solid var(--ink);background-image:repeating-linear-gradient(0deg,rgba(255,247,244,.10) 0 1px,transparent 1px 3px)}
+.tb .ttl{font-family:var(--pixel);font-size:13px;letter-spacing:.04em;flex:1;text-align:center}
+.tb .btns{display:flex;gap:6px}.tb .btns i{width:13px;height:13px;background:var(--gold);border:1.5px solid var(--ink);display:block}
+.px-lab{font-family:var(--pixel);font-size:12px}
+.menu{display:flex;gap:18px;padding:5px 14px;border-bottom:1px solid var(--ink);font-family:var(--pixel);font-size:11px}
+.marq{overflow:hidden;white-space:nowrap;border-bottom:1px dashed var(--gold);font-family:var(--mono);font-size:13px;color:var(--wine);
+padding:5px 0}
+.marq span{display:inline-block;padding-left:14px;animation:marq 30s linear infinite}
+@keyframes marq{to{transform:translateX(-50%)}}
+.cols{display:grid;grid-template-columns:1fr 290px;gap:0}
+.main{padding:22px 24px;border-right:1px solid var(--ink)}
+.side{padding:18px 16px;background:var(--blush);display:flex;flex-direction:column;gap:16px}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(40px,7vw,72px);line-height:.95;margin:0;color:var(--ground)}
+.sub{font-family:var(--script);color:var(--magenta);font-size:clamp(30px,4.4vw,44px);margin:2px 0 8px;line-height:1}
+.intro{margin:0 0 20px;font-size:16px}
+.post{border:1px solid var(--ink);background:var(--cream);margin:0 0 22px}
+.post .ph{display:flex;justify-content:space-between;gap:8px;background:var(--blush);border-bottom:1px solid var(--ink);
+padding:4px 10px;font-family:var(--pixel);font-size:11px}
+.post .pb{padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.post h2{font-family:var(--display);font-weight:800;font-size:22px;line-height:1.1;margin:0}
+.post .by{font-size:13px;color:var(--wine);font-weight:700}
+.score{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;font-family:var(--mono)}
+.score .meter{display:flex;gap:2px}.score .meter i{width:12px;height:12px;border:1px solid var(--ink);background:var(--cream)}
+.score .meter i.on{background:var(--candy)}
+.mood{font-family:var(--mono);font-size:13px;color:var(--wine)}
+.badge{display:inline-block;white-space:nowrap;font-family:var(--pixel);font-size:11px;padding:3px 8px;border:1px solid var(--ink);color:var(--ink)}
+.badge.hi{background:var(--candy)}.badge.mid{background:var(--lilac)}.badge.lo{background:var(--cream)}
+.why{margin:0;padding-left:20px;font-size:15px;list-style:none}
+.why li{position:relative}.why li::before{content:"";position:absolute;left:-16px;top:.5em;width:6px;height:6px;background:var(--gold)}
+.links{display:flex;gap:14px;flex-wrap:wrap;font-size:14px;font-weight:700}
+.pick{display:flex;align-items:center;gap:8px;font-family:var(--pixel);font-size:12px;cursor:pointer}
+.pick input{appearance:none;-webkit-appearance:none;width:20px;height:20px;margin:0;border:1.5px solid var(--ink);
+background:var(--cream);display:grid;place-items:center;cursor:pointer}
+.pick input:checked{background:var(--candy)}.pick input:checked::after{content:"\2665";color:var(--ink);font-size:13px}
+.pick input:focus-visible{outline:2px solid var(--magenta);outline-offset:2px}
+.box{border:1px solid var(--ink);background:var(--cream)}
+.box h3{margin:0;padding:4px 8px;background:var(--ground);color:var(--cream);font-family:var(--pixel);font-size:11px;
+font-weight:400;letter-spacing:.04em}
+.box .bd{padding:10px;font-size:14px}.box ul{margin:0;padding-left:18px}.box p{margin:0 0 4px}
+.counter{font-family:var(--mono);text-align:center;font-size:13px}
+.counter b{display:inline-block;background:var(--ink);color:var(--gold);padding:2px 6px;letter-spacing:.12em;font-weight:500}
+.hearts{display:flex;justify-content:center;gap:10px;align-items:center}
+.foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:8px 14px;border-top:1px solid var(--ink);
+font-family:var(--mono);font-size:12px;background:var(--blush)}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--cream);color:var(--ink);padding:10px 16px;display:flex;gap:14px;
+align-items:center;justify-content:center;flex-wrap:wrap;z-index:5;border-top:1.5px solid var(--ink)}
+.bar b{font-family:var(--mono)}
+.bar button{font-family:var(--pixel);font-size:12px;background:var(--candy);color:var(--ink);border:1.5px solid var(--ink);
+padding:7px 12px;cursor:pointer;box-shadow:2px 2px 0 var(--ink)}
+.bar button:focus-visible{outline:2px solid var(--magenta);outline-offset:3px}
+.bar output{font-family:var(--mono);font-size:13px;max-width:60ch;overflow-wrap:anywhere}
+.gb{display:flex;flex-direction:column;gap:14px}
+.sig{border:1px dashed var(--wine);background:var(--cream);padding:10px 12px}
+.sig .who{font-family:var(--display);font-weight:800;font-size:19px}
+.sig .meta{font-family:var(--mono);font-size:12.5px;color:var(--wine)}
+.sig .msg{font-family:var(--display);font-style:italic;margin-top:4px}
+.sig.due{border-style:solid;border-color:var(--magenta)}
+.sig .due{font-family:var(--pixel);font-size:11px;background:var(--candy);padding:2px 6px;margin-left:6px}
+@media (max-width:760px){.cols{grid-template-columns:1fr}.main{border-right:0;border-bottom:1px solid var(--ink);padding:16px}
+.win{margin:10px 8px 110px}}
+</style></head>
+<body data-run="[&quot;2026-10-26&quot;, &quot;postnatal running&quot;, 8]" data-motif="y2k-blog"><div class="win">
+<div class="tb"><span class="btns"><i></i><i></i><i></i></span><span class="ttl">hotline.exe</span><span class="btns" aria-hidden="true"></span></div>
+<div class="menu"><span>file</span><span>edit</span><span>view</span><span>special</span></div>
+<div class="marq" aria-hidden="true"><span>every send is yours ✧ nothing goes out on its own ✧ you are visitor no. 000,777 ✧ every send is yours ✧ nothing goes out on its own ✧ you are visitor no. 000,777 ✧ every send is yours ✧ nothing goes out on its own ✧ you are visitor no. 000,777 ✧ every send is yours ✧ nothing goes out on its own ✧ you are visitor no. 000,777 ✧ every send is yours ✧ nothing goes out on its own ✧ you are visitor no. 000,777 ✧ every send is yours ✧ nothing goes out on its own ✧ you are visitor no. 000,777 ✧ </span></div>
+<div class="cols"><div class="main"><h1>Hotline</h1><p class="sub">Call the girls!</p>
+<p class="intro">8 shows where postnatal running is the conversation, ranked by fit. Tick the ones you want. You press send.</p>
+<article class="post"><div class="ph"><span>entry no.01</span><span>last updated 2026-10-26</span></div>
+<div class="pb"><h2>Run Home Mama</h2><div class="by">hosted by Fictional Host One</div>
+<div class="score"><span class="meter" aria-label="Score 100 out of 100"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><b>100/100</b>
+<span class="badge hi">ring today</span></div>
+<div class="mood">mood: fit 100 · fresh 100 · guests 100 · size 100 · rhythm 100</div>
+<ul class="why"><li>On your love list.</li><li>They talk about new mums, return running, baby, leaking, postnatal, which is who you help.</li><li>Fresh episode on 2026-10-22.</li><li>Guest show: about 80% of recent titles are interviews.</li><li>Publishes weekly, 128 episodes so far.</li></ul>
+<div class="links"><a href="https://runhomemama.example.com/be-a-guest" target="_blank" rel="noopener noreferrer">Be a guest page</a><a href="https://runhomemama.example.com/" target="_blank" rel="noopener noreferrer">Show website</a><a href="https://podcasts.example.com/run-home-mama" target="_blank" rel="noopener noreferrer">Listen</a></div>
+<label class="pick"><input type="checkbox" data-slug="run-home-mama" data-title="Run Home Mama"> pitch this one</label>
+</div></article><article class="post"><div class="ph"><span>entry no.02</span><span>last updated 2026-10-26</span></div>
+<div class="pb"><h2>The Strong After Baby Show</h2><div class="by">hosted by Fictional Host Two</div>
+<div class="score"><span class="meter" aria-label="Score 98 out of 100"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><b>98/100</b>
+<span class="badge hi">ring today</span></div>
+<div class="mood">mood: fit 80 · fresh 85 · guests 100 · size 100 · rhythm 80</div>
+<ul class="why"><li>On your love list.</li><li>They talk about strength coach, baby, mums, running, which is who you help.</li><li>Fresh episode on 2026-10-14.</li><li>Guest show: about 60% of recent titles are interviews.</li><li>Publishes fortnightly, 64 episodes so far.</li></ul>
+<div class="links"><a href="https://strongafterbaby.example.com/" target="_blank" rel="noopener noreferrer">Show website</a><a href="https://podcasts.example.com/strong-after-baby" target="_blank" rel="noopener noreferrer">Listen</a></div>
+<label class="pick"><input type="checkbox" data-slug="the-strong-after-baby-show" data-title="The Strong After Baby Show"> pitch this one</label>
+</div></article><article class="post"><div class="ph"><span>entry no.03</span><span>last updated 2026-10-26</span></div>
+<div class="pb"><h2>Pelvic Floor Truths</h2><div class="by">hosted by Fictional Host Three</div>
+<div class="score"><span class="meter" aria-label="Score 68 out of 100"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span><b>68/100</b>
+<span class="badge mid">worth a ring</span></div>
+<div class="mood">mood: fit 68 · fresh 70 · guests 67 · size 70 · rhythm 60</div>
+<ul class="why"><li>They talk about return running, coach, postnatal, which is who you help.</li><li>Fresh episode on 2026-09-29.</li><li>Some guests: about 40% of recent titles are interviews.</li><li>Publishes monthly, 38 episodes so far.</li></ul>
+<div class="links"><a href="https://pelvicfloortruths.example.com/pitch-the-show" target="_blank" rel="noopener noreferrer">Be a guest page</a><a href="https://pelvicfloortruths.example.com/" target="_blank" rel="noopener noreferrer">Show website</a></div>
+<label class="pick"><input type="checkbox" data-slug="pelvic-floor-truths" data-title="Pelvic Floor Truths"> pitch this one</label>
+</div></article><article class="post"><div class="ph"><span>entry no.04</span><span>last updated 2026-10-26</span></div>
+<div class="pb"><h2>Mum Miles</h2><div class="by">hosted by Fictional Host Four</div>
+<div class="score"><span class="meter" aria-label="Score 50 out of 100"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span><b>50/100</b>
+<span class="badge lo">maybe later</span></div>
+<div class="mood">mood: fit 48 · fresh 100 · guests 0 · size 85 · rhythm 100</div>
+<ul class="why"><li>Light overlap: marathon, mums, plan. Listen to one episode first.</li><li>Fresh episode on 2026-10-24.</li><li>Recent titles look solo, guests may be rare.</li><li>Publishes weekly, 212 episodes so far.</li></ul>
+<div class="links"><a href="https://mummiles.example.com/" target="_blank" rel="noopener noreferrer">Show website</a><a href="https://podcasts.example.com/mum-miles" target="_blank" rel="noopener noreferrer">Listen</a></div>
+<label class="pick"><input type="checkbox" data-slug="mum-miles" data-title="Mum Miles"> pitch this one</label>
+</div></article><article class="post"><div class="ph"><span>entry no.05</span><span>last updated 2026-10-26</span></div>
+<div class="pb"><h2>Tiny Feet Big Feelings</h2><div class="by">hosted by Fictional Host Eight</div>
+<div class="score"><span class="meter" aria-label="Score 39 out of 100"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></span><b>39/100</b>
+<span class="badge lo">maybe later</span></div>
+<div class="mood">mood: fit 12 · fresh 70 · guests 100 · size 70 · rhythm 80</div>
+<ul class="why"><li>Light overlap: mums. Listen to one episode first.</li><li>Fresh episode on 2026-10-10.</li><li>Guest show: about 60% of recent titles are interviews.</li><li>Publishes fortnightly, 15 episodes so far.</li></ul>
+<div class="links"><a href="https://tinyfeet.example.com/" target="_blank" rel="noopener noreferrer">Show website</a><a href="https://podcasts.example.com/tiny-feet" target="_blank" rel="noopener noreferrer">Listen</a></div>
+<label class="pick"><input type="checkbox" data-slug="tiny-feet-big-feelings" data-title="Tiny Feet Big Feelings"> pitch this one</label>
+</div></article><article class="post"><div class="ph"><span>entry no.06</span><span>last updated 2026-10-26</span></div>
+<div class="pb"><h2>Quiet Hours Sleep Club</h2><div class="by">hosted by Fictional Host Six</div>
+<div class="score"><span class="meter" aria-label="Score 38 out of 100"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></span><b>38/100</b>
+<span class="badge lo">maybe later</span></div>
+<div class="mood">mood: fit 32 · fresh 0 · guests 83 · size 70 · rhythm 60</div>
+<ul class="why"><li>Light overlap: new mums. Listen to one episode first.</li><li>Nothing new in 90 days, it may be resting.</li><li>Guest show: about 50% of recent titles are interviews.</li><li>Publishes monthly, 45 episodes so far.</li></ul>
+<div class="links"><a href="https://quiethours.example.com/" target="_blank" rel="noopener noreferrer">Show website</a></div>
+<label class="pick"><input type="checkbox" data-slug="quiet-hours-sleep-club" data-title="Quiet Hours Sleep Club"> pitch this one</label>
+</div></article><article class="post"><div class="ph"><span>entry no.07</span><span>last updated 2026-10-26</span></div>
+<div class="pb"><h2>Diet Reset Daily</h2><div class="by">hosted by Fictional Host Seven</div>
+<div class="score"><span class="meter" aria-label="Score 34 out of 100"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><b>34/100</b>
+<span class="badge lo">maybe later</span></div>
+<div class="mood">mood: fit 44 · fresh 100 · guests 100 · size 85 · rhythm 100</div>
+<ul class="why"><li>Light overlap: new mums, baby. Listen to one episode first.</li><li>Fresh episode on 2026-10-25.</li><li>Guest show: about 70% of recent titles are interviews.</li><li>Publishes daily, 410 episodes so far.</li><li>Touches weight loss before-and-after, crash diets, which you said no to.</li></ul>
+<div class="links"><a href="https://dietreset.example.com/guest" target="_blank" rel="noopener noreferrer">Be a guest page</a><a href="https://dietreset.example.com/" target="_blank" rel="noopener noreferrer">Show website</a></div>
+<label class="pick"><input type="checkbox" data-slug="diet-reset-daily" data-title="Diet Reset Daily"> pitch this one</label>
+</div></article><article class="post"><div class="ph"><span>entry no.08</span><span>last updated 2026-10-26</span></div>
+<div class="pb"><h2>Founders Who Lift</h2><div class="by">hosted by Fictional Host Five</div>
+<div class="score"><span class="meter" aria-label="Score 34 out of 100"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><b>34/100</b>
+<span class="badge lo">maybe later</span></div>
+<div class="mood">mood: fit 0 · fresh 70 · guests 100 · size 100 · rhythm 80</div>
+<ul class="why"><li>No clear overlap with who you help. Check it before you pitch.</li><li>Fresh episode on 2026-09-30.</li><li>Guest show: about 80% of recent titles are interviews.</li><li>Publishes fortnightly, 80 episodes so far.</li></ul>
+<div class="links"><a href="https://founderswholift.example.com/" target="_blank" rel="noopener noreferrer">Show website</a><a href="https://podcasts.example.com/founders-who-lift" target="_blank" rel="noopener noreferrer">Listen</a></div>
+<label class="pick"><input type="checkbox" data-slug="founders-who-lift" data-title="Founders Who Lift"> pitch this one</label>
+</div></article></div><aside class="side"><div class="hearts"><svg class="px" viewBox="0 0 7 6" width="16" height="13" aria-hidden="true" shape-rendering="crispEdges" fill="#E9B949"><rect x="1" y="0" width="1" height="1"/><rect x="2" y="0" width="1" height="1"/><rect x="4" y="0" width="1" height="1"/><rect x="5" y="0" width="1" height="1"/><rect x="0" y="1" width="1" height="1"/><rect x="1" y="1" width="1" height="1"/><rect x="2" y="1" width="1" height="1"/><rect x="3" y="1" width="1" height="1"/><rect x="4" y="1" width="1" height="1"/><rect x="5" y="1" width="1" height="1"/><rect x="6" y="1" width="1" height="1"/><rect x="0" y="2" width="1" height="1"/><rect x="1" y="2" width="1" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="4" y="2" width="1" height="1"/><rect x="5" y="2" width="1" height="1"/><rect x="6" y="2" width="1" height="1"/><rect x="1" y="3" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="3" y="3" width="1" height="1"/><rect x="4" y="3" width="1" height="1"/><rect x="5" y="3" width="1" height="1"/><rect x="2" y="4" width="1" height="1"/><rect x="3" y="4" width="1" height="1"/><rect x="4" y="4" width="1" height="1"/><rect x="3" y="5" width="1" height="1"/></svg><svg class="px" viewBox="0 0 5 5" width="13" height="13" aria-hidden="true" shape-rendering="crispEdges" fill="#E9B949"><rect x="2" y="0" width="1" height="1"/><rect x="2" y="1" width="1" height="1"/><rect x="0" y="2" width="1" height="1"/><rect x="1" y="2" width="1" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="4" y="2" width="1" height="1"/><rect x="1" y="3" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="3" y="3" width="1" height="1"/><rect x="1" y="4" width="1" height="1"/><rect x="3" y="4" width="1" height="1"/></svg><svg class="px" viewBox="0 0 7 6" width="16" height="13" aria-hidden="true" shape-rendering="crispEdges" fill="#E9B949"><rect x="1" y="0" width="1" height="1"/><rect x="2" y="0" width="1" height="1"/><rect x="4" y="0" width="1" height="1"/><rect x="5" y="0" width="1" height="1"/><rect x="0" y="1" width="1" height="1"/><rect x="1" y="1" width="1" height="1"/><rect x="2" y="1" width="1" height="1"/><rect x="3" y="1" width="1" height="1"/><rect x="4" y="1" width="1" height="1"/><rect x="5" y="1" width="1" height="1"/><rect x="6" y="1" width="1" height="1"/><rect x="0" y="2" width="1" height="1"/><rect x="1" y="2" width="1" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="4" y="2" width="1" height="1"/><rect x="5" y="2" width="1" height="1"/><rect x="6" y="2" width="1" height="1"/><rect x="1" y="3" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="3" y="3" width="1" height="1"/><rect x="4" y="3" width="1" height="1"/><rect x="5" y="3" width="1" height="1"/><rect x="2" y="4" width="1" height="1"/><rect x="3" y="4" width="1" height="1"/><rect x="4" y="4" width="1" height="1"/><rect x="3" y="5" width="1" height="1"/></svg><svg class="px" viewBox="0 0 5 5" width="13" height="13" aria-hidden="true" shape-rendering="crispEdges" fill="#E9B949"><rect x="2" y="0" width="1" height="1"/><rect x="2" y="1" width="1" height="1"/><rect x="0" y="2" width="1" height="1"/><rect x="1" y="2" width="1" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="4" y="2" width="1" height="1"/><rect x="1" y="3" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="3" y="3" width="1" height="1"/><rect x="1" y="4" width="1" height="1"/><rect x="3" y="4" width="1" height="1"/></svg><svg class="px" viewBox="0 0 7 6" width="16" height="13" aria-hidden="true" shape-rendering="crispEdges" fill="#E9B949"><rect x="1" y="0" width="1" height="1"/><rect x="2" y="0" width="1" height="1"/><rect x="4" y="0" width="1" height="1"/><rect x="5" y="0" width="1" height="1"/><rect x="0" y="1" width="1" height="1"/><rect x="1" y="1" width="1" height="1"/><rect x="2" y="1" width="1" height="1"/><rect x="3" y="1" width="1" height="1"/><rect x="4" y="1" width="1" height="1"/><rect x="5" y="1" width="1" height="1"/><rect x="6" y="1" width="1" height="1"/><rect x="0" y="2" width="1" height="1"/><rect x="1" y="2" width="1" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="4" y="2" width="1" height="1"/><rect x="5" y="2" width="1" height="1"/><rect x="6" y="2" width="1" height="1"/><rect x="1" y="3" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="3" y="3" width="1" height="1"/><rect x="4" y="3" width="1" height="1"/><rect x="5" y="3" width="1" height="1"/><rect x="2" y="4" width="1" height="1"/><rect x="3" y="4" width="1" height="1"/><rect x="4" y="4" width="1" height="1"/><rect x="3" y="5" width="1" height="1"/></svg></div>
+<div class="box"><h3>about me</h3><div class="bd"><p>YOU ARE INVITED TO THE ROCHEVERSE</p><p>come build your founder world</p><p>dress code: lore</p></div></div>
+<div class="box"><h3>currently pitching</h3><div class="bd"><ul><li>Run Home Mama</li><li>The Strong After Baby Show</li></ul></div></div>
+<div class="box"><h3>mood</h3><div class="bd">✧ 2 ready to ring today</div></div>
+<div class="box"><div class="bd counter">you are visitor no.<br><b>000,777</b></div></div></aside></div>
+<div class="foot"><span>THE ROCHEVERSE TIMES · last updated 2026-10-26</span><span>Rocha Coded. Free tools from the Rocheverse.</span></div>
+</div>
+<div class="bar"><span class="px-lab">picks <b id="picks-n">0</b></span><button id="copy" type="button">copy picks for claude</button>
+<output id="picks-out" aria-live="polite"></output></div>
+
+<script>
+(function(){
+  var KEY = 'poe-picks:' + document.body.getAttribute('data-run');
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.pick input'));
+  var out = document.getElementById('picks-out');
+  var store = null;
+  try { store = window.localStorage; } catch (e) { store = null; out.setAttribute('data-storage', 'off'); }
+  function load(){
+    if (!store) return [];
+    try { return JSON.parse(store.getItem(KEY) || '[]'); } catch (e) { return []; }
+  }
+  function save(list){
+    if (!store) return;
+    try { store.setItem(KEY, JSON.stringify(list)); } catch (e) { store = null; }
+  }
+  function text(){
+    var picked = boxes.filter(function(b){ return b.checked; }).map(function(b){ return b.getAttribute('data-slug'); });
+    save(picked);
+    document.getElementById('picks-n').textContent = picked.length;
+    out.textContent = picked.length ? 'Pitch these shows from my shortlist: ' + picked.join(', ') : 'Tick the shows you want, then copy.';
+    return out.textContent;
+  }
+  var saved = load();
+  boxes.forEach(function(b){ if (saved.indexOf(b.getAttribute('data-slug')) > -1) b.checked = true; b.addEventListener('change', text); });
+  document.getElementById('copy').addEventListener('click', function(){
+    var t = text();
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t).then(function(){ out.textContent = 'Copied. Paste it to Claude: ' + t; },
+        function(){ out.textContent = 'Copy this to Claude: ' + t; });
+    } else { out.textContent = 'Copy this to Claude: ' + t; }
+  });
+  text();
+})();
+</script>
+</body></html>

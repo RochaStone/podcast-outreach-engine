@@ -30,6 +30,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--min", type=int, default=0, help="hide cards below this score on the HTML page")
     ap.add_argument("--name", default=None, help="your name for the invitation card on the page")
     ap.add_argument("--style", default=None, help="path to a style.json (default ./style.json, then ~/.rocha-coded/style.json)")
+    ap.add_argument("--motif", default=None, help="analog, cyberpunk or y2k-blog (default: the motif in style.json)")
     ap.add_argument("--today", default=None, help="score as if today were YYYY-MM-DD")
     a = ap.parse_args(argv)
 
@@ -59,7 +60,7 @@ def main(argv: list[str] | None = None) -> int:
     }, indent=2, ensure_ascii=False), encoding="utf-8")
     cards = [s for s in scored if s["score"] >= a.min][: a.top]
     style = load_style(a.style)
-    html = shortlist_html(cards, {"date": today.isoformat(), "name": a.name, "niche": (query.get("niche") or "").split(",")[0].strip()}, style)
+    html = shortlist_html(cards, {"date": today.isoformat(), "name": a.name, "niche": (query.get("niche") or "").split(",")[0].strip()}, style, a.motif)
     (out / "shortlist.html").write_text(html, encoding="utf-8")
 
     print(f"Style: {style['_source']}")

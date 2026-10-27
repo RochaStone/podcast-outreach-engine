@@ -63,6 +63,10 @@ bundled `KIT/examples/style.rocha-coded.json` (Rocha's own look, shipped as the 
   Then render one sample (re-run score, or `track.py render`) and show it to them. Adjust until they love it.
 - Never assume their taste is Rocha's. Never copy Rocha's lines into their file. Their words only.
 - If they decline, the bundled example is used and that is fine.
+- Every page comes in three looks: `analog` (paper, the rotary phone), `cyberpunk` (a plum terminal switchboard)
+  and `y2k-blog` (a 2003 blog window, the call log as a guestbook). The look is `motif` in `style.json`. To show one
+  without changing their file, add `--motif cyberpunk` (or `analog`, `y2k-blog`) to score.py or track.py. Offer the
+  three once, after the first shortlist, and let them pick. Their colours and fonts carry into every look.
 - Pass `--style <path>` to score.py or track.py only if the file lives somewhere else.
 
 ## 1. Guest profile (ten questions, one per turn)
